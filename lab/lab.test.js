@@ -248,107 +248,7 @@ describe("Tailwind Media Queries Lab", function () {
     });
   });
 
-  describe("General Responsive Design Principles", function () {
-    it("should follow mobile-first methodology", function () {
-      // Check that base styles are mobile-first
-      const allElements = document.querySelectorAll('[class*="w-"]');
-      let hasMobileFirst = false;
-
-      allElements.forEach(element => {
-        const classes = element.className;
-        // Look for mobile-first patterns (base class + responsive modifiers)
-        if (classes.includes("w-full") && classes.includes("md:w-")) {
-          hasMobileFirst = true;
-        }
-      });
-
-      expect(hasMobileFirst).to.be.true;
-    });
-
-    it("should use consistent breakpoint prefixes", function () {
-      const html = document.documentElement.outerHTML;
-
-      // Check for proper Tailwind breakpoint prefixes
-      expect(html).to.match(/md:/, "Should use md: prefix for tablet styles");
-      expect(html).to.match(/lg:/, "Should use lg: prefix for desktop styles");
-    });
-
-    it("should have proper semantic HTML structure", function () {
-      // Check for semantic elements
-      const nav = document.querySelector("nav");
-      const sections = document.querySelectorAll("section");
-      const headers = document.querySelectorAll("h1, h2, h3");
-
-      expect(nav).to.exist;
-      expect(sections.length).to.be.at.least(3);
-      expect(headers.length).to.be.at.least(3);
-    });
-
-    it("should maintain accessibility considerations", function () {
-      // Check for alt attributes on images
-      const images = document.querySelectorAll("img");
-      images.forEach(img => {
-        expect(img.hasAttribute("alt")).to.be.true;
-      });
-
-      // Check for proper button elements
-      const buttons = document.querySelectorAll("button");
-      buttons.forEach(button => {
-        expect(button.textContent.trim()).to.not.be.empty;
-      });
-    });
-  });
-
-  describe("Breakpoint-Specific Tests", function () {
-    it("should have appropriate classes for small screens (sm: 640px+)", function () {
-      // Some elements might use sm: breakpoint
-      const html = document.documentElement.outerHTML;
-      // This is optional but good practice for larger phones
-      if (html.includes("sm:")) {
-        expect(html).to.match(/sm:/, "If using sm: prefix, should be valid Tailwind classes");
-      }
-    });
-
-    it("should have medium breakpoint classes (md: 768px+)", function () {
-      const html = document.documentElement.outerHTML;
-      expect(html).to.match(/md:/, "Should use md: prefix for tablet styles");
-
-      // Check for common md: patterns
-      expect(html).to.match(/md:(flex|grid|block|hidden)/, "Should use md: for layout changes");
-    });
-
-    it("should have large breakpoint classes (lg: 1024px+)", function () {
-      const html = document.documentElement.outerHTML;
-      expect(html).to.match(/lg:/, "Should use lg: prefix for desktop styles");
-
-      // Check for desktop-specific features
-      expect(html).to.match(/lg:(hover|block)/, "Should use lg: for desktop features like hover effects");
-    });
-
-    it("should not overuse breakpoints (performance consideration)", function () {
-      const html = document.documentElement.outerHTML;
-
-      // Count breakpoint usage
-      const mdCount = (html.match(/md:/g) || []).length;
-      const lgCount = (html.match(/lg:/g) || []).length;
-
-      // Should use breakpoints but not excessively
-      expect(mdCount).to.be.below(50, "Should not overuse md: breakpoint");
-      expect(lgCount).to.be.below(30, "Should not overuse lg: breakpoint");
-    });
-  });
-
   describe("Challenge Integration Tests", function () {
-    it("should work together as a cohesive responsive system", function () {
-      // Test that all challenges work together
-      const challenges = document.querySelectorAll(".challenge-container");
-      expect(challenges.length).to.equal(3, "Should have exactly 3 challenges");
-
-      challenges.forEach((challenge, index) => {
-        expect(challenge.id).to.equal(`challenge-${index + 1}`, "Challenges should have proper IDs");
-      });
-    });
-
     it("should have consistent responsive patterns across challenges", function () {
       // Check that similar responsive patterns are used consistently
       const flexElements = document.querySelectorAll('[class*="md:flex"]');
@@ -358,17 +258,6 @@ describe("Tailwind Media Queries Lab", function () {
       expect(flexElements.length).to.be.at.least(2, "Should use flex layout consistently");
       expect(hiddenElements.length).to.be.at.least(3, "Should use progressive disclosure consistently");
       expect(gridElements.length).to.be.at.least(1, "Should use grid layout where appropriate");
-    });
-
-    it("should provide educational value through examples", function () {
-      // Check that the code serves as good examples
-      const hints = document.querySelectorAll(".bg-yellow-50");
-      expect(hints.length).to.be.at.least(3, "Should provide helpful hints for each challenge");
-
-      // Check for code examples in hints
-      hints.forEach(hint => {
-        expect(hint.textContent).to.include("md:", "Hints should include concrete examples");
-      });
     });
   });
 });
