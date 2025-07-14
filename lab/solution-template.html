@@ -1,446 +1,406 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind Media Queries Lab - Solution Template</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for visual feedback */
-        .challenge-container {
-            border: 2px solid #10b981;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin: 1rem 0;
-            background: #ecfdf5;
-        }
+      /* Custom styles for visual feedback */
+      .challenge-container {
+        border: 2px solid #10b981;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        background: #ecfdf5;
+      }
 
-        .breakpoint-indicator {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-family: monospace;
-            font-size: 0.875rem;
-            z-index: 1000;
-        }
+      .breakpoint-indicator {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-family: monospace;
+        font-size: 0.875rem;
+        z-index: 1000;
+      }
 
-        .solution-badge {
-            background: #10b981;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+      .solution-badge {
+        background: #10b981;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
     </style>
-</head>
-<body class="bg-gray-100 min-h-screen p-4">
-
+  </head>
+  <body class="bg-gray-100 min-h-screen p-4">
     <!-- Breakpoint Indicator (shows current screen size) -->
-    <div id="breakpoint-indicator" class="breakpoint-indicator">
-        Solution Template - Resize to test
-    </div>
+    <div id="breakpoint-indicator" class="breakpoint-indicator">Solution Template - Resize to test</div>
 
     <!-- Lab Header -->
     <header class="bg-white rounded-lg shadow-sm p-6 mb-6">
-        <div class="flex items-center justify-between">
-            <div>
-                <h1 class="text-2xl font-bold text-gray-900 mb-2">
-                    Tailwind Media Queries Lab - Solution Template
-                </h1>
-                <p class="text-gray-600">
-                    This shows the completed challenges with proper responsive Tailwind classes.
-                </p>
-            </div>
-            <div class="solution-badge">
-                ✅ SOLUTION
-            </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900 mb-2">Tailwind Media Queries Lab - Solution Template</h1>
+          <p class="text-gray-600">This shows the completed challenges with proper responsive Tailwind classes.</p>
         </div>
+        <div class="solution-badge">✅ SOLUTION</div>
+      </div>
     </header>
 
     <!-- Challenge 1: The Responsive Card - SOLUTION -->
     <section class="challenge-container" id="challenge-1">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">
-            Challenge 1: The Responsive Card ✅
-        </h2>
-        <p class="text-gray-600 mb-4">
-            <strong>Solution:</strong> This card transforms from mobile list item to tablet side-by-side to desktop feature card.
-        </p>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Challenge 1: The Responsive Card ✅</h2>
+      <p class="text-gray-600 mb-4">
+        <strong>Solution:</strong> This card transforms from mobile list item to tablet side-by-side to desktop feature
+        card.
+      </p>
 
-        <!-- SOLUTION: Responsive card with proper breakpoints -->
-        <div class="bg-white rounded-lg shadow-md p-4
-                    md:flex md:items-center md:space-x-4
-                    lg:p-6 lg:hover:shadow-xl lg:transition-shadow">
+      <!-- SOLUTION: Responsive card with proper breakpoints -->
+      <div
+        class="bg-white rounded-lg shadow-md p-4 md:flex md:items-center md:space-x-4 lg:p-6 lg:hover:shadow-xl lg:transition-shadow">
+        <!-- SOLUTION: Responsive image sizing -->
+        <img
+          src="https://picsum.photos/400/300"
+          alt="Sample image"
+          class="w-full h-48 object-cover rounded-lg md:w-32 md:h-32 md:flex-shrink-0 lg:w-40 lg:h-40" />
 
-            <!-- SOLUTION: Responsive image sizing -->
-            <img src="https://picsum.photos/400/300"
-                 alt="Sample image"
-                 class="w-full h-48 object-cover rounded-lg
-                        md:w-32 md:h-32 md:flex-shrink-0
-                        lg:w-40 lg:h-40">
+        <!-- SOLUTION: Responsive content spacing -->
+        <div class="mt-4 md:mt-0 md:ml-4 md:flex-1">
+          <!-- SOLUTION: Responsive typography -->
+          <h3 class="text-lg font-semibold text-gray-900 md:text-xl lg:text-2xl">Responsive Card Title</h3>
 
-            <!-- SOLUTION: Responsive content spacing -->
-            <div class="mt-4 md:mt-0 md:flex-1">
+          <!-- SOLUTION: Responsive description -->
+          <p class="text-gray-600 mt-2 md:text-base lg:text-lg">
+            This card demonstrates perfect responsive behavior across all breakpoints. Mobile: stacked layout. Tablet:
+            side-by-side. Desktop: enhanced with hover effects.
+          </p>
 
-                <!-- SOLUTION: Responsive typography -->
-                <h3 class="text-lg font-semibold text-gray-900
-                           md:text-xl
-                           lg:text-2xl">
-                    Responsive Card Title
-                </h3>
-
-                <!-- SOLUTION: Responsive description -->
-                <p class="text-gray-600 mt-2
-                         md:text-base
-                         lg:text-lg">
-                    This card demonstrates perfect responsive behavior across all breakpoints.
-                    Mobile: stacked layout. Tablet: side-by-side. Desktop: enhanced with hover effects.
-                </p>
-
-                <!-- SOLUTION: Responsive button -->
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full
-                               md:w-auto md:mt-3
-                               lg:px-6 lg:py-3 lg:hover:bg-blue-600 lg:transition-colors">
-                    Learn More
-                </button>
-            </div>
+          <!-- SOLUTION: Responsive button -->
+          <button
+            class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full md:w-auto md:mt-3 lg:px-6 lg:py-3 lg:hover:bg-blue-600 lg:transition-colors">
+            Learn More
+          </button>
         </div>
+      </div>
 
-        <!-- Solution Explanation -->
-        <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-            <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
-            <ul class="text-green-700 text-sm space-y-1">
-                <li>• <code>md:flex md:items-center md:space-x-4</code> - Side-by-side layout on tablet</li>
-                <li>• <code>md:w-32 md:h-32 md:flex-shrink-0</code> - Fixed image size on tablet</li>
-                <li>• <code>md:mt-0 md:flex-1</code> - Remove top margin, content fills remaining space</li>
-                <li>• <code>lg:hover:shadow-xl lg:transition-shadow</code> - Hover effects on desktop</li>
-                <li>• <code>md:w-auto</code> - Button changes from full width to auto width</li>
-            </ul>
-        </div>
+      <!-- Solution Explanation -->
+      <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+        <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
+        <ul class="text-green-700 text-sm space-y-1">
+          <li>• <code>md:flex md:items-center md:space-x-4</code> - Side-by-side layout on tablet</li>
+          <li>• <code>md:w-32 md:h-32 md:flex-shrink-0</code> - Fixed image size on tablet</li>
+          <li>• <code>md:mt-0 md:flex-1</code> - Remove top margin, content fills remaining space</li>
+          <li>• <code>lg:hover:shadow-xl lg:transition-shadow</code> - Hover effects on desktop</li>
+          <li>• <code>md:w-auto</code> - Button changes from full width to auto width</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Challenge 2: The Adaptive Navigation - SOLUTION -->
     <section class="challenge-container" id="challenge-2">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">
-            Challenge 2: The Adaptive Navigation ✅
-        </h2>
-        <p class="text-gray-600 mb-4">
-            <strong>Solution:</strong> Navigation adapts from mobile hamburger to tablet horizontal to desktop full nav.
-        </p>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Challenge 2: The Adaptive Navigation ✅</h2>
+      <p class="text-gray-600 mb-4">
+        <strong>Solution:</strong> Navigation adapts from mobile hamburger to tablet horizontal to desktop full nav.
+      </p>
 
-        <!-- SOLUTION: Adaptive navigation -->
-        <nav class="bg-gray-800 text-white p-4 rounded-lg">
+      <!-- SOLUTION: Adaptive navigation -->
+      <nav class="bg-gray-800 text-white p-4 rounded-lg">
+        <!-- SOLUTION: Responsive header layout -->
+        <div class="flex items-center justify-between md:justify-start">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold">My Site</h1>
+          </div>
 
-            <!-- SOLUTION: Responsive header layout -->
-            <div class="flex items-center justify-between
-                       md:justify-start">
-                <div class="flex items-center">
-                    <h1 class="text-xl font-bold">My Site</h1>
-                </div>
-
-                <!-- SOLUTION: Hamburger menu hidden on tablet+ -->
-                <button class="text-white focus:outline-none
-                               md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- SOLUTION: Responsive navigation menu -->
-            <ul class="mt-4 space-y-2
-                      md:mt-0 md:ml-8 md:flex md:items-center md:space-y-0 md:space-x-6
-                      lg:space-x-8">
-                <li><a href="#" class="block py-2 hover:text-gray-300
-                                       md:py-0">Home</a></li>
-                <li><a href="#" class="block py-2 hover:text-gray-300
-                                       md:py-0">About</a></li>
-                <li><a href="#" class="block py-2 hover:text-gray-300
-                                       md:py-0">Services</a></li>
-                <li><a href="#" class="block py-2 hover:text-gray-300
-                                       md:py-0">Contact</a></li>
-            </ul>
-
-            <!-- SOLUTION: Extra content for desktop only -->
-            <div class="hidden lg:block mt-4 lg:mt-0 lg:ml-auto">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
-                    Sign Up
-                </button>
-            </div>
-        </nav>
-
-        <!-- Solution Explanation -->
-        <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-            <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
-            <ul class="text-green-700 text-sm space-y-1">
-                <li>• <code>md:hidden</code> - Hides hamburger menu on tablet and up</li>
-                <li>• <code>md:flex md:items-center</code> - Horizontal menu layout on tablet</li>
-                <li>• <code>md:space-y-0 md:space-x-6</code> - Changes spacing from vertical to horizontal</li>
-                <li>• <code>md:mt-0 md:ml-8</code> - Repositions menu for tablet layout</li>
-                <li>• <code>hidden lg:block</code> - Shows extra content only on desktop</li>
-            </ul>
+          <!-- SOLUTION: Hamburger menu hidden on tablet+ -->
+          <button class="text-white focus:outline-none md:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
         </div>
+
+        <!-- SOLUTION: Responsive navigation menu -->
+        <ul class="mt-4 space-y-2 md:mt-0 md:ml-8 md:flex md:items-center md:space-y-0 md:space-x-6 lg:space-x-8">
+          <li><a href="#" class="block py-2 hover:text-gray-300 md:py-0">Home</a></li>
+          <li><a href="#" class="block py-2 hover:text-gray-300 md:py-0">About</a></li>
+          <li><a href="#" class="block py-2 hover:text-gray-300 md:py-0">Services</a></li>
+          <li><a href="#" class="block py-2 hover:text-gray-300 md:py-0">Contact</a></li>
+        </ul>
+
+        <!-- SOLUTION: Extra content for desktop only -->
+        <div class="hidden lg:block mt-4 lg:mt-0 lg:ml-auto">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+            Sign Up
+          </button>
+        </div>
+      </nav>
+
+      <!-- Solution Explanation -->
+      <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+        <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
+        <ul class="text-green-700 text-sm space-y-1">
+          <li>• <code>md:hidden</code> - Hides hamburger menu on tablet and up</li>
+          <li>• <code>md:flex md:items-center</code> - Horizontal menu layout on tablet</li>
+          <li>• <code>md:space-y-0 md:space-x-6</code> - Changes spacing from vertical to horizontal</li>
+          <li>• <code>md:mt-0 md:ml-8</code> - Repositions menu for tablet layout</li>
+          <li>• <code>hidden lg:block</code> - Shows extra content only on desktop</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Challenge 3: The Content Choreographer - SOLUTION -->
     <section class="challenge-container" id="challenge-3">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">
-            Challenge 3: The Content Choreographer ✅
-        </h2>
-        <p class="text-gray-600 mb-4">
-            <strong>Solution:</strong> Dashboard with progressive content disclosure and responsive grid layout.
-        </p>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Challenge 3: The Content Choreographer ✅</h2>
+      <p class="text-gray-600 mb-4">
+        <strong>Solution:</strong> Dashboard with progressive content disclosure and responsive grid layout.
+      </p>
 
-        <!-- SOLUTION: Responsive dashboard -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
+      <!-- SOLUTION: Responsive dashboard -->
+      <div class="bg-white rounded-lg shadow-sm p-6">
+        <!-- SOLUTION: Responsive grid layout -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          <!-- Main Content (always visible) -->
+          <div class="bg-blue-50 p-4 rounded-lg lg:col-span-2" id="c3-main-content">
+            <h3 class="font-semibold text-blue-900 mb-2">Main Dashboard</h3>
+            <p class="text-blue-700 mb-4">This main content is always visible on all screen sizes.</p>
 
-            <!-- SOLUTION: Responsive grid layout -->
-            <div class="grid grid-cols-1 gap-6
-                       md:grid-cols-2 md:gap-8
-                       lg:grid-cols-3">
-
-                <!-- Main Content (always visible) -->
-                <div class="bg-blue-50 p-4 rounded-lg
-                           lg:col-span-2">
-                    <h3 class="font-semibold text-blue-900 mb-2">Main Dashboard</h3>
-                    <p class="text-blue-700 mb-4">This main content is always visible on all screen sizes.</p>
-
-                    <!-- SOLUTION: Responsive stats layout -->
-                    <div class="space-y-2
-                               md:flex md:space-y-0 md:space-x-4">
-                        <div class="bg-white p-3 rounded flex-1">
-                            <div class="text-2xl font-bold text-blue-600">1,234</div>
-                            <div class="text-sm text-blue-600">Users</div>
-                        </div>
-                        <div class="bg-white p-3 rounded flex-1">
-                            <div class="text-2xl font-bold text-green-600">5,678</div>
-                            <div class="text-sm text-green-600">Revenue</div>
-                        </div>
-                        <div class="bg-white p-3 rounded flex-1">
-                            <div class="text-2xl font-bold text-purple-600">9,012</div>
-                            <div class="text-sm text-purple-600">Orders</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Secondary Content (tablet+) -->
-                <!-- SOLUTION: Hidden on mobile, visible on tablet+ -->
-                <div class="hidden md:block bg-green-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-green-900 mb-2">Secondary Panel</h3>
-                    <p class="text-green-700 mb-3">This appears on tablet and larger screens.</p>
-                    <ul class="space-y-1 text-sm text-green-600">
-                        <li>• Analytics Overview</li>
-                        <li>• Recent Activity</li>
-                        <li>• Quick Actions</li>
-                        <li>• Performance Metrics</li>
-                    </ul>
-                </div>
-
-                <!-- Tertiary Content (desktop only) -->
-                <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
-                <div class="hidden lg:block bg-purple-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-purple-900 mb-2">Advanced Features</h3>
-                    <p class="text-purple-700 mb-3">This advanced panel only appears on desktop screens.</p>
-                    <div class="space-y-2">
-                        <div class="bg-white p-2 rounded text-sm">Advanced Analytics</div>
-                        <div class="bg-white p-2 rounded text-sm">Admin Controls</div>
-                        <div class="bg-white p-2 rounded text-sm">System Settings</div>
-                        <div class="bg-white p-2 rounded text-sm">API Management</div>
-                    </div>
-                </div>
-
-                <!-- Sidebar (desktop only) -->
-                <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
-                <div class="hidden lg:block bg-gray-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-gray-900 mb-2">Navigation</h3>
-                    <nav class="space-y-1 text-sm">
-                        <a href="#" class="block text-blue-600 font-medium py-1">Dashboard</a>
-                        <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Analytics</a>
-                        <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Reports</a>
-                        <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Users</a>
-                        <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Settings</a>
-                    </nav>
-                </div>
-
-                <!-- Additional Content (desktop only) -->
-                <!-- SOLUTION: Even more content for desktop -->
-                <div class="hidden lg:block bg-yellow-50 p-4 rounded-lg">
-                    <h3 class="font-semibold text-yellow-900 mb-2">Notifications</h3>
-                    <div class="space-y-2 text-sm">
-                        <div class="bg-white p-2 rounded flex items-center">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                            System updated successfully
-                        </div>
-                        <div class="bg-white p-2 rounded flex items-center">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                            New user registered
-                        </div>
-                        <div class="bg-white p-2 rounded flex items-center">
-                            <div class="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
-                            Maintenance scheduled
-                        </div>
-                    </div>
-                </div>
-
+            <!-- SOLUTION: Responsive stats layout -->
+            <div class="space-y-2 md:flex md:space-y-0 md:space-x-4" id="c3-stats">
+              <div class="bg-white p-3 rounded flex-1">
+                <div class="text-2xl font-bold text-blue-600">1,234</div>
+                <div class="text-sm text-blue-600">Users</div>
+              </div>
+              <div class="bg-white p-3 rounded flex-1">
+                <div class="text-2xl font-bold text-green-600">5,678</div>
+                <div class="text-sm text-green-600">Revenue</div>
+              </div>
+              <div class="bg-white p-3 rounded flex-1">
+                <div class="text-2xl font-bold text-purple-600">9,012</div>
+                <div class="text-sm text-purple-600">Orders</div>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <!-- Solution Explanation -->
-        <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-            <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
-            <ul class="text-green-700 text-sm space-y-1">
-                <li>• <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code> - Responsive grid system</li>
-                <li>• <code>hidden md:block</code> - Progressive disclosure for tablet+</li>
-                <li>• <code>hidden lg:block</code> - Desktop-only content</li>
-                <li>• <code>lg:col-span-2</code> - Main content spans 2 columns on desktop</li>
-                <li>• <code>md:flex md:space-x-4</code> - Horizontal stats layout on tablet+</li>
+          <!-- Secondary Content (tablet+) -->
+          <!-- SOLUTION: Hidden on mobile, visible on tablet+ -->
+          <div class="hidden md:block bg-green-50 p-4 rounded-lg" id="c3-secondary-content">
+            <h3 class="font-semibold text-green-900 mb-2">Secondary Panel</h3>
+            <p class="text-green-700 mb-3">This appears on tablet and larger screens.</p>
+            <ul class="space-y-1 text-sm text-green-600">
+              <li>• Analytics Overview</li>
+              <li>• Recent Activity</li>
+              <li>• Quick Actions</li>
+              <li>• Performance Metrics</li>
             </ul>
+          </div>
+
+          <!-- Tertiary Content (desktop only) -->
+          <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
+          <div class="hidden lg:block bg-purple-50 p-4 rounded-lg" id="c3-tertiary-content">
+            <h3 class="font-semibold text-purple-900 mb-2">Advanced Features</h3>
+            <p class="text-purple-700 mb-3">This advanced panel only appears on desktop screens.</p>
+            <div class="space-y-2">
+              <div class="bg-white p-2 rounded text-sm">Advanced Analytics</div>
+              <div class="bg-white p-2 rounded text-sm">Admin Controls</div>
+              <div class="bg-white p-2 rounded text-sm">System Settings</div>
+              <div class="bg-white p-2 rounded text-sm">API Management</div>
+            </div>
+          </div>
+
+          <!-- Sidebar (desktop only) -->
+          <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
+          <div class="hidden lg:block bg-gray-50 p-4 rounded-lg" id="c3-sidebar">
+            <h3 class="font-semibold text-gray-900 mb-2">Navigation</h3>
+            <nav class="space-y-1 text-sm">
+              <a href="#" class="block text-blue-600 font-medium py-1">Dashboard</a>
+              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Analytics</a>
+              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Reports</a>
+              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Users</a>
+              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Settings</a>
+            </nav>
+          </div>
+
+          <!-- Additional Content (desktop only) -->
+          <!-- SOLUTION: Even more content for desktop -->
+          <div class="hidden lg:block bg-yellow-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-yellow-900 mb-2">Notifications</h3>
+            <div class="space-y-2 text-sm">
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                System updated successfully
+              </div>
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                New user registered
+              </div>
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                Maintenance scheduled
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Solution Explanation -->
+      <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+        <h4 class="font-semibold text-green-800 mb-2">✅ Solution Explanation:</h4>
+        <ul class="text-green-700 text-sm space-y-1">
+          <li>• <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code> - Responsive grid system</li>
+          <li>• <code>hidden md:block</code> - Progressive disclosure for tablet+</li>
+          <li>• <code>hidden lg:block</code> - Desktop-only content</li>
+          <li>• <code>lg:col-span-2</code> - Main content spans 2 columns on desktop</li>
+          <li>• <code>md:flex md:space-x-4</code> - Horizontal stats layout on tablet+</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Completion Status -->
-    <section class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg shadow-sm p-6 mt-6 border-2 border-green-200">
-        <div class="flex items-center justify-between">
-            <div>
-                <h2 class="text-xl font-bold text-green-900 mb-2">🎉 All Challenges Completed!</h2>
-                <p class="text-green-700">
-                    Congratulations! You've mastered Tailwind CSS responsive design with proper mobile-first methodology.
-                </p>
-            </div>
-            <div class="text-6xl">🏆</div>
+    <section
+      class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg shadow-sm p-6 mt-6 border-2 border-green-200">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-green-900 mb-2">🎉 All Challenges Completed!</h2>
+          <p class="text-green-700">
+            Congratulations! You've mastered Tailwind CSS responsive design with proper mobile-first methodology.
+          </p>
         </div>
+        <div class="text-6xl">🏆</div>
+      </div>
 
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-white p-4 rounded-lg">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-green-700 font-medium">Challenge 1</span>
-                    <span class="text-green-600">✅ Complete</span>
-                </div>
-                <div class="text-sm text-green-600">Responsive Card Layout</div>
-            </div>
-            <div class="bg-white p-4 rounded-lg">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-green-700 font-medium">Challenge 2</span>
-                    <span class="text-green-600">✅ Complete</span>
-                </div>
-                <div class="text-sm text-green-600">Adaptive Navigation</div>
-            </div>
-            <div class="bg-white p-4 rounded-lg">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-green-700 font-medium">Challenge 3</span>
-                    <span class="text-green-600">✅ Complete</span>
-                </div>
-                <div class="text-sm text-green-600">Content Choreographer</div>
-            </div>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-green-700 font-medium">Challenge 1</span>
+            <span class="text-green-600">✅ Complete</span>
+          </div>
+          <div class="text-sm text-green-600">Responsive Card Layout</div>
         </div>
+        <div class="bg-white p-4 rounded-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-green-700 font-medium">Challenge 2</span>
+            <span class="text-green-600">✅ Complete</span>
+          </div>
+          <div class="text-sm text-green-600">Adaptive Navigation</div>
+        </div>
+        <div class="bg-white p-4 rounded-lg">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-green-700 font-medium">Challenge 3</span>
+            <span class="text-green-600">✅ Complete</span>
+          </div>
+          <div class="text-sm text-green-600">Content Choreographer</div>
+        </div>
+      </div>
     </section>
 
     <!-- Key Learnings Summary -->
     <section class="bg-white rounded-lg shadow-sm p-6 mt-6">
-        <h2 class="text-xl font-bold text-gray-900 mb-4">🎯 Key Learnings Mastered</h2>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">🎯 Key Learnings Mastered</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3">Mobile-First Methodology</h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li>✅ Start with mobile styles (no prefix)</li>
-                    <li>✅ Enhance for larger screens with prefixes</li>
-                    <li>✅ Use min-width media queries</li>
-                    <li>✅ Progressive enhancement approach</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3">Tailwind Breakpoints</h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li>✅ <code>md:</code> for tablet (768px+)</li>
-                    <li>✅ <code>lg:</code> for desktop (1024px+)</li>
-                    <li>✅ <code>xl:</code> for large screens (1280px+)</li>
-                    <li>✅ Responsive utilities for all properties</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3">Layout Techniques</h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li>✅ Flexbox for component layouts</li>
-                    <li>✅ CSS Grid for page layouts</li>
-                    <li>✅ Responsive spacing and sizing</li>
-                    <li>✅ Show/hide content strategically</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="font-semibold text-gray-800 mb-3">Best Practices</h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li>✅ Test across all breakpoints</li>
-                    <li>✅ Focus on content hierarchy</li>
-                    <li>✅ Use hover effects only on desktop</li>
-                    <li>✅ Maintain accessibility standards</li>
-                </ul>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Mobile-First Methodology</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li>✅ Start with mobile styles (no prefix)</li>
+            <li>✅ Enhance for larger screens with prefixes</li>
+            <li>✅ Use min-width media queries</li>
+            <li>✅ Progressive enhancement approach</li>
+          </ul>
         </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Tailwind Breakpoints</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li>✅ <code>md:</code> for tablet (768px+)</li>
+            <li>✅ <code>lg:</code> for desktop (1024px+)</li>
+            <li>✅ <code>xl:</code> for large screens (1280px+)</li>
+            <li>✅ Responsive utilities for all properties</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Layout Techniques</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li>✅ Flexbox for component layouts</li>
+            <li>✅ CSS Grid for page layouts</li>
+            <li>✅ Responsive spacing and sizing</li>
+            <li>✅ Show/hide content strategically</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Best Practices</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li>✅ Test across all breakpoints</li>
+            <li>✅ Focus on content hierarchy</li>
+            <li>✅ Use hover effects only on desktop</li>
+            <li>✅ Maintain accessibility standards</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- Next Steps -->
     <section class="bg-blue-50 rounded-lg shadow-sm p-6 mt-6">
-        <h2 class="text-xl font-bold text-blue-900 mb-4">🚀 Next Steps</h2>
-        <div class="space-y-3 text-blue-800">
-            <p>• <strong>Practice:</strong> Apply these techniques to your own projects</p>
-            <p>• <strong>Advanced:</strong> Explore custom breakpoints and complex layouts</p>
-            <p>• <strong>Performance:</strong> Learn about responsive images and optimization</p>
-            <p>• <strong>Accessibility:</strong> Study responsive design accessibility patterns</p>
-            <p>• <strong>Frameworks:</strong> Apply responsive design to React, Vue, or other frameworks</p>
-        </div>
+      <h2 class="text-xl font-bold text-blue-900 mb-4">🚀 Next Steps</h2>
+      <div class="space-y-3 text-blue-800">
+        <p>• <strong>Practice:</strong> Apply these techniques to your own projects</p>
+        <p>• <strong>Advanced:</strong> Explore custom breakpoints and complex layouts</p>
+        <p>• <strong>Performance:</strong> Learn about responsive images and optimization</p>
+        <p>• <strong>Accessibility:</strong> Study responsive design accessibility patterns</p>
+        <p>• <strong>Frameworks:</strong> Apply responsive design to React, Vue, or other frameworks</p>
+      </div>
     </section>
 
     <script>
-        // Breakpoint indicator functionality
-        function updateBreakpointIndicator() {
-            const indicator = document.getElementById('breakpoint-indicator');
-            const width = window.innerWidth;
+      // Breakpoint indicator functionality
+      function updateBreakpointIndicator() {
+        const indicator = document.getElementById("breakpoint-indicator");
+        const width = window.innerWidth;
 
-            if (width < 768) {
-                indicator.textContent = `Mobile: ${width}px - Base styles active`;
-                indicator.className = 'breakpoint-indicator';
-                indicator.style.background = 'rgba(0, 0, 0, 0.8)';
-            } else if (width < 1024) {
-                indicator.textContent = `Tablet: ${width}px - md: styles active`;
-                indicator.className = 'breakpoint-indicator';
-                indicator.style.background = 'rgba(139, 92, 246, 0.9)';
-            } else {
-                indicator.textContent = `Desktop: ${width}px - lg: styles active`;
-                indicator.className = 'breakpoint-indicator';
-                indicator.style.background = 'rgba(37, 99, 235, 0.9)';
-            }
+        if (width < 768) {
+          indicator.textContent = `Mobile: ${width}px - Base styles active`;
+          indicator.className = "breakpoint-indicator";
+          indicator.style.background = "rgba(0, 0, 0, 0.8)";
+        } else if (width < 1024) {
+          indicator.textContent = `Tablet: ${width}px - md: styles active`;
+          indicator.className = "breakpoint-indicator";
+          indicator.style.background = "rgba(139, 92, 246, 0.9)";
+        } else {
+          indicator.textContent = `Desktop: ${width}px - lg: styles active`;
+          indicator.className = "breakpoint-indicator";
+          indicator.style.background = "rgba(37, 99, 235, 0.9)";
         }
+      }
 
-        // Update indicator on load and resize
-        window.addEventListener('load', updateBreakpointIndicator);
-        window.addEventListener('resize', updateBreakpointIndicator);
+      // Update indicator on load and resize
+      window.addEventListener("load", updateBreakpointIndicator);
+      window.addEventListener("resize", updateBreakpointIndicator);
 
-        // Add some interactive feedback
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add visual feedback when user resizes window
-            let resizeTimeout;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function() {
-                    // Add a brief highlight to show responsive changes
-                    const challenges = document.querySelectorAll('.challenge-container');
-                    challenges.forEach(challenge => {
-                        challenge.style.borderColor = '#3b82f6';
-                        setTimeout(() => {
-                            challenge.style.borderColor = '#10b981';
-                        }, 300);
-                    });
-                }, 100);
+      // Add some interactive feedback
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add visual feedback when user resizes window
+        let resizeTimeout;
+        window.addEventListener("resize", function () {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function () {
+            // Add a brief highlight to show responsive changes
+            const challenges = document.querySelectorAll(".challenge-container");
+            challenges.forEach(challenge => {
+              challenge.style.borderColor = "#3b82f6";
+              setTimeout(() => {
+                challenge.style.borderColor = "#10b981";
+              }, 300);
             });
+          }, 100);
         });
+      });
     </script>
-</body>
+  </body>
 </html>
