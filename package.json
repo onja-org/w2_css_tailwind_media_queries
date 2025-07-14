@@ -1,0 +1,50 @@
+{
+  "name": "tailwind-media-queries-lab",
+  "version": "1.0.0",
+  "description": "Interactive lab for learning Tailwind CSS media queries and responsive design",
+  "main": "lab/index.html",
+  "scripts": {
+    "test": "mocha lab/lab.test.js --timeout 5000",
+    "test:watch": "mocha lab/lab.test.js --watch --timeout 5000",
+    "test:verbose": "mocha lab/lab.test.js --reporter spec --timeout 5000",
+    "start": "node -e \"console.log('Open lab/index.html in your browser to start the lab!')\"",
+    "serve": "npx http-server . -p 8080 -o lab/index.html",
+    "validate": "node scripts/validate-challenges.js"
+  },
+  "keywords": [
+    "tailwind",
+    "css",
+    "responsive",
+    "media-queries",
+    "lab",
+    "education",
+    "web-development"
+  ],
+  "author": "Lab Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "jsdom": "^22.1.0",
+    "mocha": "^10.2.0",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lab-team/tailwind-media-queries-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lab-team/tailwind-media-queries-lab/issues"
+  },
+  "homepage": "https://github.com/lab-team/tailwind-media-queries-lab#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
+}

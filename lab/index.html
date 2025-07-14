@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Media Queries Lab - Shape-Shifting Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="lab-styles.css">
+    <style>
+        /* Custom fonts and animations for each persona */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+        /* Terminal persona animations */
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .terminal-cursor::after {
+            content: '█';
+            animation: blink 1s infinite;
+        }
+
+        /* Tablet persona bounce animation */
+        @keyframes bounce-in {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .tablet-bounce {
+            animation: bounce-in 0.5s ease-out;
+        }
+
+        /* Desktop persona slide animation */
+        @keyframes slide-in {
+            0% { transform: translateX(-20px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        .desktop-slide {
+            animation: slide-in 0.3s ease-out;
+        }
+
+        /* Hover effects for desktop */
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen transition-all duration-500
+            bg-black text-green-400 font-mono
+            md:bg-purple-50 md:text-purple-900 md:font-sans
+            lg:bg-gray-50 lg:text-gray-900 lg:font-sans">
+
+    <!-- TERMINAL PERSONA (Mobile) -->
+    <div class="block md:hidden">
+        <div class="p-4 min-h-screen">
+            <!-- Terminal Header -->
+            <div class="mb-4 text-xs text-green-300">
+                TERMINAL-X v2.1.0 - RESPONSIVE TRAINING SYSTEM
+                <br>
+                Connection established... Screen size: MOBILE
+            </div>
+
+            <!-- Terminal Welcome -->
+            <div class="mb-6">
+                <div class="terminal-cursor text-green-400 font-bold text-lg mb-2">
+                    &gt; SYSTEM ONLINE
+                </div>
+                <div class="text-sm text-green-300 space-y-1">
+                    <div>&gt; Detecting viewport: MOBILE MODE</div>
+                    <div>&gt; Loading responsive training protocols...</div>
+                    <div>&gt; Ready for responsive design mastery</div>
+                </div>
+            </div>
+
+            <!-- Terminal Commands -->
+            <div class="space-y-4">
+                <div class="bg-gray-900 p-3 rounded border border-green-500">
+                    <div class="text-green-300 text-xs mb-1">CURRENT MISSION:</div>
+                    <div class="text-green-400 font-bold">Learn Tailwind Media Queries</div>
+                    <div class="text-green-300 text-xs mt-2">
+                        Status: MOBILE-FIRST DETECTED ✓
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="text-green-300 text-sm">&gt; Available Commands:</div>
+                    <div class="pl-4 space-y-1 text-xs">
+                        <div class="text-green-400">→ START_CHALLENGE_1</div>
+                        <div class="text-green-400">→ VIEW_LESSONS</div>
+                        <div class="text-green-400">→ RUN_TESTS</div>
+                        <div class="text-green-400">→ EXPAND_VIEWPORT</div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 p-3 rounded border border-green-500">
+                    <div class="text-green-300 text-xs mb-1">SYSTEM TIP:</div>
+                    <div class="text-green-400 text-sm">
+                        Resize browser window to unlock advanced interfaces
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal Action Buttons -->
+            <div class="mt-6 space-y-2">
+                <button onclick="startChallenge()"
+                        class="w-full bg-green-600 text-black py-2 px-4 rounded font-bold
+                               hover:bg-green-500 transition-colors">
+                    &gt; START CHALLENGE 1
+                </button>
+                <button onclick="viewLessons()"
+                        class="w-full bg-gray-700 text-green-400 py-2 px-4 rounded border border-green-500
+                               hover:bg-gray-600 transition-colors">
+                    &gt; VIEW LESSONS
+                </button>
+            </div>
+
+            <!-- Terminal Footer -->
+            <div class="mt-8 text-xs text-green-600">
+                <div>TERMINAL-X © 2024 - Mobile Responsive Training</div>
+                <div>Type 'help' for assistance</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLET PERSONA (TabbyGuide) -->
+    <div class="hidden md:block lg:hidden">
+        <div class="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-6">
+            <!-- Tablet Header -->
+            <div class="text-center mb-8">
+                <div class="text-6xl mb-2">🎯</div>
+                <h1 class="text-3xl font-bold text-purple-900 mb-2">
+                    Hey there, Responsive Rockstar!
+                </h1>
+                <div class="text-lg text-purple-700">
+                    I'm TabbyGuide, your friendly tablet companion!
+                    <span class="font-semibold">Perfect screen size detected!</span>
+                </div>
+            </div>
+
+            <!-- Tablet Progress -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 tablet-bounce">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-xl font-bold text-purple-900">Your Progress</div>
+                    <div class="text-2xl">📊</div>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-purple-100 rounded-full p-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-purple-900">Responsive Skills</span>
+                            <span class="text-purple-700">Level 1</span>
+                        </div>
+                        <div class="w-full bg-purple-200 rounded-full h-3 mt-2">
+                            <div class="bg-purple-500 h-3 rounded-full w-1/4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tablet Challenges -->
+            <div class="grid grid-cols-1 gap-4 mb-6">
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow tablet-bounce">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-xl font-bold text-purple-900">Challenge 1: Responsive Cards</div>
+                        <div class="text-2xl">🎴</div>
+                    </div>
+                    <div class="text-purple-700 mb-4">
+                        Build a card that transforms from mobile list to desktop feature!
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                            ✨ Perfect for tablets!
+                        </div>
+                        <div class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                            Touch-friendly
+                        </div>
+                    </div>
+                    <button onclick="startChallenge()"
+                            class="w-full mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-xl font-bold text-lg
+                                   hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105">
+                        Start Challenge 🚀
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tablet Quick Actions -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <button onclick="viewLessons()"
+                        class="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow tablet-bounce">
+                    <div class="text-2xl mb-2">📚</div>
+                    <div class="font-bold text-purple-900">View Lessons</div>
+                    <div class="text-purple-700 text-sm">Learn the concepts</div>
+                </button>
+                <button onclick="runTests()"
+                        class="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow tablet-bounce">
+                    <div class="text-2xl mb-2">🧪</div>
+                    <div class="font-bold text-purple-900">Run Tests</div>
+                    <div class="text-purple-700 text-sm">Check your work</div>
+                </button>
+            </div>
+
+            <!-- Tablet Tip -->
+            <div class="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-2xl p-6 tablet-bounce">
+                <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">💡</div>
+                    <div class="font-bold text-orange-900">TabbyGuide Tip</div>
+                </div>
+                <div class="text-orange-800">
+                    You're at the perfect screen size! Tablets are great for testing responsive designs.
+                    Try resizing to see how I change too! 🎨
+                </div>
+            </div>
+
+            <!-- Tablet Footer -->
+            <div class="text-center mt-8 text-purple-600">
+                <div class="text-sm">
+                    Made with 💜 by TabbyGuide | Screen: Tablet Mode
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESKTOP PERSONA (DevPro Suite) -->
+    <div class="hidden lg:block">
+        <div class="min-h-screen bg-gray-50">
+            <!-- Desktop Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between h-16">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0">
+                                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-lg font-semibold text-gray-900">DevPro Suite</div>
+                                <div class="text-sm text-gray-500">Responsive Design Laboratory</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                Desktop Mode Active
+                            </div>
+                            <div class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                                1024px+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Desktop Main Content -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                    <!-- Sidebar -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 desktop-slide">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Navigation</h3>
+                            <nav class="space-y-2">
+                                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900">
+                                    <svg class="mr-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    Lessons
+                                </a>
+                                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-md">
+                                    <svg class="mr-3 h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                    </svg>
+                                    Challenges
+                                </a>
+                                <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900">
+                                    <svg class="mr-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Tests
+                                </a>
+                            </nav>
+                        </div>
+
+                        <!-- Progress Panel -->
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-6 desktop-slide">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Progress</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm font-medium">
+                                        <span class="text-gray-700">Responsive Mastery</span>
+                                        <span class="text-gray-500">25%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                                        <div class="bg-blue-600 h-2 rounded-full w-1/4"></div>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                        Mobile-first understanding
+                                    </div>
+                                    <div class="flex items-center mt-1">
+                                        <div class="w-2 h-2 bg-gray-300 rounded-full mr-2"></div>
+                                        Breakpoint mastery
+                                    </div>
+                                    <div class="flex items-center mt-1">
+                                        <div class="w-2 h-2 bg-gray-300 rounded-full mr-2"></div>
+                                        Advanced responsive patterns
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Area -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 desktop-slide">
+                            <div class="text-center mb-8">
+                                <h1 class="text-3xl font-bold text-gray-900 mb-2">
+                                    Welcome to DevPro Suite
+                                </h1>
+                                <p class="text-lg text-gray-600">
+                                    Professional responsive design development environment
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 hover-glow hover:from-blue-100 hover:to-indigo-100 transition-all cursor-pointer">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Challenge 1</h3>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">
+                                        Build responsive cards that transform across breakpoints
+                                    </p>
+                                    <div class="flex items-center text-sm text-blue-600 font-medium">
+                                        Start Challenge
+                                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-6 hover-glow hover:from-green-100 hover:to-emerald-100 transition-all cursor-pointer">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Lessons</h3>
+                                    </div>
+                                    <p class="text-gray-600 mb-4">
+                                        Learn mobile-first design and breakpoint fundamentals
+                                    </p>
+                                    <div class="flex items-center text-sm text-green-600 font-medium">
+                                        View Lessons
+                                        <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-gray-200 pt-6">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-gray-900">Current Environment</h3>
+                                        <p class="text-sm text-gray-600">Desktop development mode - All features available</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                        <span class="text-sm text-gray-600">Online</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 desktop-slide">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                            <div class="space-y-3">
+                                <button onclick="startChallenge()"
+                                        class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors text-sm font-medium">
+                                    Start Challenge
+                                </button>
+                                <button onclick="viewLessons()"
+                                        class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium">
+                                    View Lessons
+                                </button>
+                                <button onclick="runTests()"
+                                        class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium">
+                                    Run Tests
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- System Info -->
+                        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mt-6 desktop-slide">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">System Status</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Screen Size:</span>
+                                    <span class="text-gray-900 font-medium">Desktop</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Breakpoint:</span>
+                                    <span class="text-gray-900 font-medium">lg: (1024px+)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Mode:</span>
+                                    <span class="text-green-600 font-medium">DevPro Suite</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">Features:</span>
+                                    <span class="text-gray-900 font-medium">All Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load lab controller -->
+    <script src="lab-controller.js"></script>
+</body>
+</html>

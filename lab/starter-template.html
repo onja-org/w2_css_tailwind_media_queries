@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Media Queries Lab - Student Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for visual feedback */
+        .challenge-container {
+            border: 2px dashed #cbd5e1;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #f8fafc;
+        }
+
+        .challenge-complete {
+            border-color: #10b981;
+            background: #ecfdf5;
+        }
+
+        .breakpoint-indicator {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+
+    <!-- Breakpoint Indicator (shows current screen size) -->
+    <div id="breakpoint-indicator" class="breakpoint-indicator">
+        Resize window to see breakpoints
+    </div>
+
+    <!-- Lab Header -->
+    <header class="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">
+            Tailwind Media Queries Lab - Student Workspace
+        </h1>
+        <p class="text-gray-600">
+            Complete each challenge by adding responsive Tailwind classes.
+            Test your work by resizing the browser window!
+        </p>
+    </header>
+
+    <!-- Challenge 1: The Responsive Card -->
+    <section class="challenge-container" id="challenge-1">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">
+            Challenge 1: The Responsive Card
+        </h2>
+        <p class="text-gray-600 mb-4">
+            Transform this card from a simple mobile list item to a feature-rich desktop card.
+            <br>
+            <strong>Goal:</strong> Mobile (stacked) → Tablet (side-by-side) → Desktop (enhanced with hover effects)
+        </p>
+
+        <!-- TODO: Add responsive classes to make this card transform -->
+        <!-- Mobile: Simple stacked layout -->
+        <!-- Tablet (md:): Side-by-side layout -->
+        <!-- Desktop (lg:): Enhanced with hover effects and larger sizing -->
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <!-- TODO: Make image responsive -->
+            <!-- Mobile: Full width, medium height -->
+            <!-- Tablet: Fixed width on left side -->
+            <!-- Desktop: Larger fixed width -->
+            <img src="https://picsum.photos/400/300"
+                 alt="Sample image"
+                 class="w-full h-48 object-cover rounded-lg">
+
+            <!-- TODO: Add responsive spacing and layout -->
+            <!-- Mobile: Top margin for spacing -->
+            <!-- Tablet: Left margin, remove top margin -->
+            <!-- Desktop: Larger left margin -->
+            <div class="mt-4">
+                <!-- TODO: Make title responsive -->
+                <!-- Mobile: Base size -->
+                <!-- Tablet: Slightly larger -->
+                <!-- Desktop: Even larger -->
+                <h3 class="text-lg font-semibold text-gray-900">
+                    Responsive Card Title
+                </h3>
+
+                <!-- TODO: Make description responsive -->
+                <!-- Mobile: Base size -->
+                <!-- Tablet: Maintain size -->
+                <!-- Desktop: Larger text -->
+                <p class="text-gray-600 mt-2">
+                    This card should look great on mobile as a simple stacked layout,
+                    transform to side-by-side on tablet, and become feature-rich on desktop.
+                </p>
+
+                <!-- TODO: Add responsive button -->
+                <!-- Mobile: Full width -->
+                <!-- Tablet: Inline button -->
+                <!-- Desktop: Hover effects -->
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 w-full">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <!-- Hint Section -->
+        <div class="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <h4 class="font-semibold text-yellow-800 mb-2">💡 Hints:</h4>
+            <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Use <code>md:flex</code> to change layout on tablet</li>
+                <li>• Try <code>md:w-32 md:h-32</code> for image sizing on tablet</li>
+                <li>• Add <code>lg:hover:shadow-lg</code> for desktop hover effects</li>
+                <li>• Use <code>md:ml-4 md:mt-0</code> for content spacing on tablet</li>
+                <li>• Try <code>md:w-auto</code> for button on tablet and desktop</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Challenge 2: The Adaptive Navigation -->
+    <section class="challenge-container" id="challenge-2">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">
+            Challenge 2: The Adaptive Navigation
+        </h2>
+        <p class="text-gray-600 mb-4">
+            Create navigation that adapts to different screen sizes.
+            <br>
+            <strong>Goal:</strong> Mobile (hamburger menu) → Tablet (horizontal menu) → Desktop (full navigation with extras)
+        </p>
+
+        <!-- TODO: Add responsive classes for navigation -->
+        <nav class="bg-gray-800 text-white p-4 rounded-lg">
+            <!-- TODO: Make header responsive -->
+            <!-- Mobile: Space between logo and hamburger -->
+            <!-- Tablet+: Different layout -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold">My Site</h1>
+                </div>
+
+                <!-- TODO: Hamburger menu button -->
+                <!-- Mobile: Visible -->
+                <!-- Tablet+: Hidden -->
+                <button class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- TODO: Navigation menu -->
+            <!-- Mobile: Hidden by default, stacked when shown -->
+            <!-- Tablet+: Horizontal layout, always visible -->
+            <ul class="mt-4 space-y-2">
+                <li><a href="#" class="block py-2 hover:text-gray-300">Home</a></li>
+                <li><a href="#" class="block py-2 hover:text-gray-300">About</a></li>
+                <li><a href="#" class="block py-2 hover:text-gray-300">Services</a></li>
+                <li><a href="#" class="block py-2 hover:text-gray-300">Contact</a></li>
+            </ul>
+
+            <!-- TODO: Extra navigation items -->
+            <!-- Mobile: Hidden -->
+            <!-- Desktop: Visible -->
+            <div class="mt-4">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                    Sign Up
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hint Section -->
+        <div class="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <h4 class="font-semibold text-yellow-800 mb-2">💡 Hints:</h4>
+            <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Use <code>md:hidden</code> to hide hamburger on tablet+</li>
+                <li>• Try <code>md:flex md:items-center</code> for horizontal menu</li>
+                <li>• Use <code>md:mt-0 md:ml-8</code> to reposition menu on tablet</li>
+                <li>• Add <code>md:space-y-0 md:space-x-6</code> for horizontal spacing</li>
+                <li>• Use <code>lg:block</code> to show extra items on desktop</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Challenge 3: The Content Choreographer -->
+    <section class="challenge-container" id="challenge-3">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">
+            Challenge 3: The Content Choreographer
+        </h2>
+        <p class="text-gray-600 mb-4">
+            Create a dashboard where content appears, disappears, and reorders based on screen size.
+            <br>
+            <strong>Goal:</strong> Mobile (single column, essential only) → Tablet (two columns) → Desktop (full dashboard)
+        </p>
+
+        <!-- TODO: Add responsive grid layout -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <!-- TODO: Make this a responsive grid -->
+            <!-- Mobile: 1 column -->
+            <!-- Tablet: 2 columns -->
+            <!-- Desktop: 3 columns -->
+            <div class="space-y-4">
+
+                <!-- Main Content (always visible) -->
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-blue-900 mb-2">Main Dashboard</h3>
+                    <p class="text-blue-700">This main content should always be visible on all screen sizes.</p>
+
+                    <!-- TODO: Add responsive stats -->
+                    <!-- Mobile: Stacked -->
+                    <!-- Tablet+: Side by side -->
+                    <div class="mt-4 space-y-2">
+                        <div class="bg-white p-3 rounded">
+                            <div class="text-2xl font-bold text-blue-600">1,234</div>
+                            <div class="text-sm text-blue-600">Users</div>
+                        </div>
+                        <div class="bg-white p-3 rounded">
+                            <div class="text-2xl font-bold text-green-600">5,678</div>
+                            <div class="text-sm text-green-600">Revenue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Content (tablet+) -->
+                <!-- TODO: Hide on mobile, show on tablet+ -->
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-green-900 mb-2">Secondary Panel</h3>
+                    <p class="text-green-700">This should only appear on tablet and larger screens.</p>
+                    <ul class="mt-2 space-y-1 text-sm text-green-600">
+                        <li>• Feature 1</li>
+                        <li>• Feature 2</li>
+                        <li>• Feature 3</li>
+                    </ul>
+                </div>
+
+                <!-- Tertiary Content (desktop only) -->
+                <!-- TODO: Hide on mobile and tablet, show on desktop -->
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-purple-900 mb-2">Advanced Features</h3>
+                    <p class="text-purple-700">This advanced panel only appears on desktop screens.</p>
+                    <div class="mt-2 space-y-2">
+                        <div class="bg-white p-2 rounded text-sm">Advanced Analytics</div>
+                        <div class="bg-white p-2 rounded text-sm">Admin Controls</div>
+                        <div class="bg-white p-2 rounded text-sm">System Settings</div>
+                    </div>
+                </div>
+
+                <!-- Sidebar (desktop only) -->
+                <!-- TODO: Hide on mobile/tablet, show on desktop -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-900 mb-2">Sidebar</h3>
+                    <p class="text-gray-700">Desktop sidebar with additional navigation.</p>
+                    <nav class="mt-2 space-y-1 text-sm">
+                        <a href="#" class="block text-gray-600 hover:text-gray-900">Dashboard</a>
+                        <a href="#" class="block text-gray-600 hover:text-gray-900">Reports</a>
+                        <a href="#" class="block text-gray-600 hover:text-gray-900">Settings</a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Hint Section -->
+        <div class="mt-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+            <h4 class="font-semibold text-yellow-800 mb-2">💡 Hints:</h4>
+            <ul class="text-yellow-700 text-sm space-y-1">
+                <li>• Use <code>grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code> for responsive grid</li>
+                <li>• Try <code>hidden md:block</code> to show content on tablet+</li>
+                <li>• Use <code>hidden lg:block</code> to show content on desktop only</li>
+                <li>• Add <code>md:flex md:space-x-4</code> for stats layout</li>
+                <li>• Consider <code>lg:col-span-2</code> for spanning columns on desktop</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="bg-white rounded-lg shadow-sm p-6 mt-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Your Progress</h2>
+        <div class="space-y-3">
+            <div class="flex items-center justify-between">
+                <span class="text-gray-700">Challenge 1: Responsive Card</span>
+                <span class="text-yellow-600">In Progress</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-700">Challenge 2: Adaptive Navigation</span>
+                <span class="text-gray-400">Not Started</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-700">Challenge 3: Content Choreographer</span>
+                <span class="text-gray-400">Not Started</span>
+            </div>
+        </div>
+
+        <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+            <p class="text-blue-700 text-sm">
+                <strong>Remember:</strong> Tailwind uses mobile-first breakpoints.
+                Start with mobile styles (no prefix), then add tablet styles (md:), then desktop styles (lg:).
+            </p>
+        </div>
+    </section>
+
+    <!-- Testing Section -->
+    <section class="bg-white rounded-lg shadow-sm p-6 mt-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-4">Testing Your Work</h2>
+        <p class="text-gray-600 mb-4">
+            Test your responsive design by resizing this browser window or using browser dev tools.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-center">
+                <div class="text-sm font-mono">Mobile</div>
+                <div class="text-xs text-green-300">< 768px</div>
+            </div>
+            <div class="bg-purple-600 text-white p-4 rounded-lg text-center">
+                <div class="text-sm font-bold">Tablet</div>
+                <div class="text-xs text-purple-200">768px - 1023px</div>
+            </div>
+            <div class="bg-blue-600 text-white p-4 rounded-lg text-center">
+                <div class="text-sm font-semibold">Desktop</div>
+                <div class="text-xs text-blue-200">1024px+</div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <button onclick="runTests()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
+                Run Tests
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Simple breakpoint indicator
+        function updateBreakpointIndicator() {
+            const indicator = document.getElementById('breakpoint-indicator');
+            const width = window.innerWidth;
+
+            if (width < 768) {
+                indicator.textContent = `Mobile: ${width}px`;
+                indicator.className = 'breakpoint-indicator mobile';
+            } else if (width < 1024) {
+                indicator.textContent = `Tablet: ${width}px`;
+                indicator.className = 'breakpoint-indicator tablet';
+            } else {
+                indicator.textContent = `Desktop: ${width}px`;
+                indicator.className = 'breakpoint-indicator desktop';
+            }
+        }
+
+        // Update indicator on load and resize
+        window.addEventListener('load', updateBreakpointIndicator);
+        window.addEventListener('resize', updateBreakpointIndicator);
+
+        // Simple test function
+        function runTests() {
+            alert('Tests would run here! In the full lab, this would check your responsive classes.');
+        }
+    </script>
+</body>
+</html>

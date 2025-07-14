@@ -1,0 +1,493 @@
+/* Lab Styles for Shape-Shifting Interface */
+
+/* Terminal Persona (Mobile) - Additional styles for terminal feel */
+.terminal-persona {
+  background: #000;
+  color: #00ff00;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.terminal-text {
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.terminal-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-border {
+  border: 1px solid #00ff00;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+/* Typing animation for terminal */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.terminal-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+}
+
+/* Blinking cursor */
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s infinite;
+  color: #00ff00;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Terminal button styles */
+.terminal-button {
+  background: #00ff00;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.terminal-button:hover {
+  background: #00cc00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.terminal-button-secondary {
+  background: transparent;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 0.5rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.terminal-button-secondary:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* Tablet Persona (TabbyGuide) - Playful styles */
+.tablet-persona {
+  background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+  color: #581c87;
+  font-family: 'Nunito', sans-serif;
+}
+
+.tablet-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tablet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tablet-button {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tablet-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+.tablet-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Bounce animation for tablet elements */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tablet-bounce {
+  animation: bounce-in 0.6s ease-out;
+}
+
+/* Tablet progress bar */
+.tablet-progress {
+  background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.tablet-badge {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Desktop Persona (DevPro Suite) - Professional styles */
+.desktop-persona {
+  background: #f9fafb;
+  color: #111827;
+  font-family: 'Inter', sans-serif;
+}
+
+.desktop-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.desktop-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.desktop-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.desktop-button:hover {
+  background: #1d4ed8;
+}
+
+.desktop-button-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.desktop-button-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Slide animation for desktop elements */
+@keyframes slide-in {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.desktop-slide {
+  animation: slide-in 0.4s ease-out;
+}
+
+/* Desktop navigation styles */
+.desktop-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  color: #374151;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.desktop-nav-item:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.desktop-nav-item.active {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.desktop-nav-item svg {
+  margin-right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Progress indicators */
+.progress-bar {
+  background: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+/* Status indicators */
+.status-online {
+  background: #10b981;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+}
+
+.status-offline {
+  background: #ef4444;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+}
+
+/* Responsive utilities for lab interface */
+.mobile-only {
+  display: block;
+}
+
+.tablet-only {
+  display: none;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .tablet-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .tablet-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Hover effects for desktop only */
+@media (min-width: 1024px) {
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Special responsive preview area */
+.preview-area {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.preview-area:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+/* Breakpoint indicators */
+.breakpoint-indicator {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.breakpoint-indicator.mobile {
+  background: rgba(0, 255, 0, 0.8);
+  color: black;
+}
+
+.breakpoint-indicator.tablet {
+  background: rgba(139, 92, 246, 0.8);
+  color: white;
+}
+
+.breakpoint-indicator.desktop {
+  background: rgba(37, 99, 235, 0.8);
+  color: white;
+}
+
+/* Challenge completion badges */
+.challenge-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.challenge-badge.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.challenge-badge.in-progress {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.challenge-badge.locked {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* Responsive test results */
+.test-results {
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.test-pass {
+  color: #059669;
+}
+
+.test-fail {
+  color: #dc2626;
+}
+
+.test-warning {
+  color: #d97706;
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Utility classes for quick styling */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(4px);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive text sizes */
+.text-responsive {
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .text-responsive {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive {
+    font-size: 1.25rem;
+  }
+}
+
+/* Container for responsive preview */
+.responsive-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    max-width: 768px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    max-width: 1024px;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-container {
+    max-width: 1280px;
+  }
+}
