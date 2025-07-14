@@ -428,7 +428,7 @@
                   <button
                     onclick="runTests()"
                     class="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors text-sm font-medium">
-                    Run Tests
+                    🧪 Run Tests (Live)
                   </button>
                 </div>
               </div>
@@ -453,6 +453,10 @@
                     <span class="text-gray-600">Features:</span>
                     <span class="text-gray-900 font-medium">All Available</span>
                   </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Cache:</span>
+                    <span class="text-green-600 font-medium">Bypassed</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -463,5 +467,8 @@
 
     <!-- Load lab controller -->
     <script src="lab-controller.js"></script>
+
+    <!-- Load browser test runner that reuses lab.test.js logic -->
+    <script src="browser-test-runner.js"></script>
   </body>
 </html>

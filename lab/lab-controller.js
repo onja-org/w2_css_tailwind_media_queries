@@ -5,12 +5,14 @@
 
 class TailwindLabController {
   constructor() {
-    this.currentBreakpoint = this.detectBreakpoint();
+    this.currentBreakpoint = "mobile";
     this.challenges = {
       1: { completed: false, name: "Responsive Card" },
       2: { completed: false, name: "Adaptive Navigation" },
       3: { completed: false, name: "Content Choreographer" },
     };
+    this.testResults = [];
+    this.studentDocument = null;
     this.init();
   }
 
@@ -157,8 +159,7 @@ class TailwindLabController {
       ],
     };
 
-    const tipText =
-      tips[breakpoint][Math.floor(Math.random() * tips[breakpoint].length)];
+    const tipText = tips[breakpoint][Math.floor(Math.random() * tips[breakpoint].length)];
     console.log(`💡 Tip: ${tipText}`);
   }
 
@@ -168,7 +169,7 @@ class TailwindLabController {
    */
   updateResponsiveHints(breakpoint) {
     const hints = document.querySelectorAll(".responsive-hint");
-    hints.forEach((hint) => {
+    hints.forEach(hint => {
       const breakpointClass = hint.dataset.breakpoint;
       if (breakpointClass === breakpoint) {
         hint.style.display = "block";
@@ -219,11 +220,7 @@ class TailwindLabController {
    */
   hasResponsiveClasses(element) {
     const classList = element.className;
-    return (
-      classList.includes("md:") ||
-      classList.includes("lg:") ||
-      classList.includes("xl:")
-    );
+    return classList.includes("md:") || classList.includes("lg:") || classList.includes("xl:");
   }
 
   /**
@@ -233,10 +230,7 @@ class TailwindLabController {
    */
   hasResponsiveNavigation(nav) {
     const classList = nav.className;
-    return (
-      classList.includes("md:") &&
-      (classList.includes("hidden") || classList.includes("flex"))
-    );
+    return classList.includes("md:") && (classList.includes("hidden") || classList.includes("flex"));
   }
 
   /**
@@ -246,10 +240,7 @@ class TailwindLabController {
    */
   hasResponsiveDashboard(dashboard) {
     const classList = dashboard.className;
-    return (
-      classList.includes("grid") &&
-      (classList.includes("md:grid-cols") || classList.includes("lg:grid-cols"))
-    );
+    return classList.includes("grid") && (classList.includes("md:grid-cols") || classList.includes("lg:grid-cols"));
   }
 
   /**
@@ -283,8 +274,7 @@ class TailwindLabController {
    */
   showChallengeCompletionModal(challengeNumber, challengeName) {
     const modal = document.createElement("div");
-    modal.className =
-      "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50";
+    modal.className = "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50";
     modal.innerHTML = `
             <div class="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
                 <div class="text-6xl mb-4">🎉</div>
@@ -316,21 +306,19 @@ class TailwindLabController {
    * Update progress UI elements
    */
   updateProgressUI() {
-    const completedCount = Object.values(this.challenges).filter(
-      (c) => c.completed,
-    ).length;
+    const completedCount = Object.values(this.challenges).filter(c => c.completed).length;
     const totalCount = Object.keys(this.challenges).length;
     const percentage = Math.round((completedCount / totalCount) * 100);
 
     // Update progress bars
     const progressBars = document.querySelectorAll(".progress-fill");
-    progressBars.forEach((bar) => {
+    progressBars.forEach(bar => {
       bar.style.width = `${percentage}%`;
     });
 
     // Update progress text
     const progressTexts = document.querySelectorAll(".progress-text");
-    progressTexts.forEach((text) => {
+    progressTexts.forEach(text => {
       text.textContent = `${completedCount}/${totalCount} challenges completed`;
     });
   }
@@ -339,9 +327,7 @@ class TailwindLabController {
    * Observe changes in challenge containers
    */
   observeChallengeChanges() {
-    const challengeContainers = document.querySelectorAll(
-      ".challenge-container",
-    );
+    const challengeContainers = document.querySelectorAll(".challenge-container");
 
     if (window.MutationObserver) {
       const observer = new MutationObserver(() => {
@@ -352,7 +338,7 @@ class TailwindLabController {
         }, 500);
       });
 
-      challengeContainers.forEach((container) => {
+      challengeContainers.forEach(container => {
         observer.observe(container, {
           attributes: true,
           childList: true,
@@ -377,7 +363,7 @@ class TailwindLabController {
    * Setup keyboard shortcuts
    */
   setupKeyboardShortcuts() {
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", e => {
       // Alt + 1, 2, 3 to jump to challenges
       if (e.altKey && e.key >= "1" && e.key <= "3") {
         e.preventDefault();
@@ -433,24 +419,67 @@ class TailwindLabController {
   /**
    * Run tests for all challenges
    */
-  runTests() {
+  // External file loading method
+  async loadExternalHTML(filePath) {
+    try {
+      // Add cache-busting to ensure we get the latest version
+      const cacheBuster = `?t=${Date.now()}&r=${Math.random()}`;
+      const urlWithCacheBuster = `${filePath}${cacheBuster}`;
+
+      const response = await fetch(urlWithCacheBuster, {
+        cache: "no-cache",
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to load ${filePath}: ${response.status}`);
+      }
+
+      const htmlText = await response.text();
+      const parser = new DOMParser();
+      this.studentDocument = parser.parseFromString(htmlText, "text/html");
+
+      console.log(`✅ Successfully loaded ${filePath} (bypassed cache)`);
+      return this.studentDocument;
+    } catch (error) {
+      console.error(`❌ Error loading ${filePath}:`, error);
+      throw error;
+    }
+  }
+
+  // Testing methods
+  async runTests() {
     console.log("🧪 Running responsive design tests...");
 
-    const results = [];
+    try {
+      // Load external file for testing (with cache-busting)
+      await this.loadExternalHTML("starter-template.html");
 
-    // Test Challenge 1
-    const challenge1Result = this.testChallenge1();
-    results.push(challenge1Result);
+      const results = [];
 
-    // Test Challenge 2
-    const challenge2Result = this.testChallenge2();
-    results.push(challenge2Result);
+      // Test Challenge 1
+      const challenge1Result = this.testChallenge1();
+      results.push(challenge1Result);
 
-    // Test Challenge 3
-    const challenge3Result = this.testChallenge3();
-    results.push(challenge3Result);
+      // Test Challenge 2
+      const challenge2Result = this.testChallenge2();
+      results.push(challenge2Result);
 
-    this.displayTestResults(results);
+      // Test Challenge 3
+      const challenge3Result = this.testChallenge3();
+      results.push(challenge3Result);
+
+      console.log(results);
+
+      this.displayTestResults(results);
+    } catch (error) {
+      console.error("❌ Failed to run tests:", error);
+      this.displayTestError(error);
+    }
   }
 
   /**
@@ -458,7 +487,8 @@ class TailwindLabController {
    * @returns {Object} Test result
    */
   testChallenge1() {
-    const card = document.querySelector("#challenge-1 .bg-white");
+    const doc = this.studentDocument || document;
+    const card = doc.querySelector("#challenge-1 .bg-white");
     const tests = [];
 
     if (card) {
@@ -480,12 +510,13 @@ class TailwindLabController {
         message: "Add lg:hover:shadow-lg for desktop hover effects",
       });
     }
+    console.log(card);
 
     return {
       challenge: 1,
       name: "Responsive Card",
       tests,
-      passed: tests.every((t) => t.passed),
+      passed: tests.every(t => t.passed == true),
     };
   }
 
@@ -494,7 +525,8 @@ class TailwindLabController {
    * @returns {Object} Test result
    */
   testChallenge2() {
-    const nav = document.querySelector("#challenge-2 nav");
+    const doc = this.studentDocument || document;
+    const nav = doc.querySelector("#challenge-2 nav");
     const tests = [];
 
     if (nav) {
@@ -524,7 +556,7 @@ class TailwindLabController {
       challenge: 2,
       name: "Adaptive Navigation",
       tests,
-      passed: tests.every((t) => t.passed),
+      passed: tests.every(t => t.passed),
     };
   }
 
@@ -533,15 +565,14 @@ class TailwindLabController {
    * @returns {Object} Test result
    */
   testChallenge3() {
-    const dashboard = document.querySelector("#challenge-3 .bg-white > div");
+    const doc = this.studentDocument || document;
+    const dashboard = doc.querySelector("#challenge-3 .bg-white > div");
     const tests = [];
 
     if (dashboard) {
       tests.push({
         name: "Has responsive grid layout",
-        passed:
-          dashboard.className.includes("grid") &&
-          dashboard.className.includes("md:grid-cols"),
+        passed: dashboard.className.includes("grid") && dashboard.className.includes("md:grid-cols"),
         message: "Add grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
       });
 
@@ -549,8 +580,7 @@ class TailwindLabController {
       tests.push({
         name: "Has hidden elements for progressive disclosure",
         passed: hiddenElements.length > 0,
-        message:
-          "Use hidden md:block or hidden lg:block to show content progressively",
+        message: "Use hidden md:block or hidden lg:block to show content progressively",
       });
     }
 
@@ -558,7 +588,7 @@ class TailwindLabController {
       challenge: 3,
       name: "Content Choreographer",
       tests,
-      passed: tests.every((t) => t.passed),
+      passed: tests.every(t => t.passed),
     };
   }
 
@@ -568,17 +598,10 @@ class TailwindLabController {
    */
   displayTestResults(results) {
     const modal = document.createElement("div");
-    modal.className =
-      "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4";
+    modal.className = "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4";
 
-    const totalTests = results.reduce(
-      (sum, result) => sum + result.tests.length,
-      0,
-    );
-    const passedTests = results.reduce(
-      (sum, result) => sum + result.tests.filter((t) => t.passed).length,
-      0,
-    );
+    const totalTests = results.reduce((sum, result) => sum + result.tests.length, 0);
+    const passedTests = results.reduce((sum, result) => sum + result.tests.filter(t => t.passed).length, 0);
 
     modal.innerHTML = `
             <div class="bg-white rounded-lg p-6 max-w-2xl w-full max-h-96 overflow-y-auto">
@@ -587,7 +610,7 @@ class TailwindLabController {
                 </h2>
                 ${results
                   .map(
-                    (result) => `
+                    result => `
                     <div class="mb-4 p-4 border rounded-lg ${result.passed ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200"}">
                         <h3 class="font-semibold ${result.passed ? "text-green-800" : "text-red-800"}">
                             ${result.passed ? "✅" : "❌"} Challenge ${result.challenge}: ${result.name}
@@ -595,17 +618,17 @@ class TailwindLabController {
                         <ul class="mt-2 space-y-1 text-sm">
                             ${result.tests
                               .map(
-                                (test) => `
+                                test => `
                                 <li class="${test.passed ? "text-green-700" : "text-red-700"}">
                                     ${test.passed ? "✓" : "✗"} ${test.name}
                                     ${!test.passed ? `<br><span class="text-gray-600 ml-4">💡 ${test.message}</span>` : ""}
                                 </li>
-                            `,
+                            `
                               )
                               .join("")}
                         </ul>
                     </div>
-                `,
+                `
                   )
                   .join("")}
                 <div class="text-center mt-4">
@@ -618,6 +641,32 @@ class TailwindLabController {
         `;
 
     document.body.appendChild(modal);
+  }
+
+  /**
+   * Display test error
+   * @param {Error} error - The error that occurred
+   */
+  displayTestError(error) {
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded z-50";
+    errorDiv.innerHTML = `
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="font-bold">Testing Error</div>
+          <div class="text-sm">Could not load starter-template.html</div>
+          <div class="text-xs text-red-600">${error.message}</div>
+        </div>
+        <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-red-500 hover:text-red-700">×</button>
+      </div>
+    `;
+    document.body.appendChild(errorDiv);
+
+    setTimeout(() => {
+      if (errorDiv.parentNode) {
+        errorDiv.parentNode.removeChild(errorDiv);
+      }
+    }, 5000);
   }
 }
 
@@ -633,11 +682,7 @@ function startChallenge() {
 }
 
 function viewLessons() {
-  const lessons = [
-    "../lessons/intro.md",
-    "../lessons/mobile-first.md",
-    "../lessons/breakpoint-reference.md",
-  ];
+  const lessons = ["../lessons/intro.md", "../lessons/mobile-first.md", "../lessons/breakpoint-reference.md"];
 
   // Open first lesson in new tab
   window.open(lessons[0], "_blank");
@@ -656,7 +701,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.labController = new TailwindLabController();
   console.log("🚀 Tailwind Media Queries Lab loaded successfully!");
   console.log("💡 Try resizing the window to see the interface transform");
-  console.log(
-    "⌨️ Keyboard shortcuts: Alt+1/2/3 for challenges, Alt+T for tests",
-  );
+  console.log("⌨️ Keyboard shortcuts: Alt+1/2/3 for challenges, Alt+T for tests");
 });
