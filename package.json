@@ -4,7 +4,7 @@
   "description": "Interactive lab for learning Tailwind CSS media queries and responsive design",
   "main": "lab/index.html",
   "scripts": {
-    "test": "mocha lab/lab.test.js --timeout 5000",
+    "test": "node scripts/test-filter.js",
     "test:watch": "mocha lab/lab.test.js --watch --timeout 5000",
     "test:verbose": "mocha lab/lab.test.js --reporter spec --timeout 5000",
     "start": "node -e \"console.log('Open lab/index.html in your browser to start the lab!')\"",

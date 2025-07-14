@@ -31,7 +31,7 @@ Each breakpoint inherits styles from smaller breakpoints:
 ```
 Mobile (0px+)     →  Base styles apply
   ↓
-Tablet (768px+)   →  Base styles + md: styles apply  
+Tablet (768px+)   →  Base styles + md: styles apply
   ↓
 Desktop (1024px+) →  Base styles + md: styles + lg: styles apply
 ```
@@ -151,6 +151,8 @@ Desktop (1024px+) →  Base styles + md: styles + lg: styles apply
 
 ## Practical Examples
 
+Try to reason about how these examples adapt at different breakpoints. Which styles will apply at all sizes? What changes as the screen gets larger?
+
 ### Example 1: Responsive Hero Section
 ```html
 <section class="bg-gray-900 text-white py-12 px-4
@@ -201,21 +203,21 @@ Desktop (1024px+) →  Base styles + md: styles + lg: styles apply
            lg:px-8">
   <div class="flex items-center justify-between
              lg:justify-start lg:space-x-8">
-    
+
     <!-- Logo -->
     <div class="flex items-center">
       <img class="h-8 w-auto
                   md:h-10
                   lg:h-12" src="logo.png" alt="Logo">
     </div>
-    
+
     <!-- Mobile menu button -->
     <button class="md:hidden">
       <svg class="h-6 w-6" fill="none" stroke="currentColor">
         <!-- Hamburger icon -->
       </svg>
     </button>
-    
+
     <!-- Desktop navigation -->
     <div class="hidden md:flex md:items-center md:space-x-6
                lg:space-x-8">
