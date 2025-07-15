@@ -43,7 +43,8 @@
       <h1 class="text-2xl font-bold text-gray-900 mb-2">Tailwind Media Queries Lab - Student Workspace</h1>
       <p class="text-gray-600 mb-2">
         Complete each challenge by adding responsive Tailwind classes in
-        <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">lab/starter-template.html</span>.
+        <!-- <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">lab/starter-template.html</span>. -->
+        <code class="bg-gray-200 rounded px-2 py-1 text-sm">lab/starter-template.html</code>.
         <br />
         <br />
         See whether your breakpoints are working by resizing the browser window or by using the browser's developer
@@ -56,7 +57,7 @@
           Clicking the Run Tests button on the
           <a class="text-blue-600 font-medium" target="_blank" href="../dashboard/index.html">dashboard</a>
         </li>
-        <li>Running <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm test</span> in your console</li>
+        <li>Running <code class="bg-gray-200 rounded px-2 py-1 text-sm">npm test</code> in your console</li>
       </ul>
     </header>
 
@@ -299,34 +300,32 @@
           <li>• Use <code>hidden lg:block</code> to show content on desktop only</li>
           <li>• Add <code>md:flex md:space-x-4</code> for stats layout</li>
           <li>• Consider <code>lg:col-span-2</code> for spanning columns on desktop</li>
+          <li>• Notice how the main content expands to take up 2 columns in the grid view</li>
         </ul>
       </div>
     </section>
 
-    <!-- Progress Section -->
+    <!-- Bonus Challenge -->
     <section class="bg-white rounded-lg shadow-sm p-6 mt-6">
-      <h2 class="text-xl font-bold text-gray-900 mb-4">Your Progress</h2>
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="text-gray-700">Challenge 1: Responsive Card</span>
-          <span class="text-yellow-600">In Progress</span>
-        </div>
-        <div class="flex items-center justify-between">
-          <span class="text-gray-700">Challenge 2: Adaptive Navigation</span>
-          <span class="text-gray-400">Not Started</span>
-        </div>
-        <div class="flex items-center justify-between">
-          <span class="text-gray-700">Challenge 3: Content Choreographer</span>
-          <span class="text-gray-400">Not Started</span>
-        </div>
-      </div>
-
-      <div class="mt-4 p-4 bg-blue-50 rounded-lg">
-        <p class="text-blue-700 text-sm">
-          <strong>Remember:</strong> Tailwind uses mobile-first breakpoints. Start with mobile styles (no prefix), then
-          add tablet styles (md:), then desktop styles (lg:).
-        </p>
-      </div>
+      <h2 class="text-xl font-bold text-gray-900 mb-4">Bonus Activities</h2>
+      <p class="text-gray-600 mb-4">
+        Congratulations on completing the main challenges! If you have extra time, try these bonus activities:
+      </p>
+      <ul class="list-disc pl-6 text-gray-600 space-y-2">
+        <li>Try to recreate portions from the dashboard in a completely fresh project</li>
+        <ul class="list-disc pl-6 text-gray-600 space-y-2">
+          <li>Create a new testing directory outside of this repository with a fresh <code>index.html</code></li>
+          <li>
+            <a class="text-blue-600" href="https://tailwindcss.com/docs/installation/play-cdn">Include Tailwind CDN</a>
+          </li>
+          <li>Reference the <code>dashboard/index.html</code> and see how much you can recreate!</li>
+        </ul>
+        <li>
+          Read through the Tailwind Docs on
+          <a class="text-blue-600" href="https://tailwindcss.com/docs/responsive-design">Responsive Design</a> and
+          <a class="text-blue-600" href="https://tailwindcss.com/docs/hover-focus-and-other-states">Media Queries</a>
+        </li>
+      </ul>
     </section>
 
     <!-- Testing Section -->
@@ -336,11 +335,11 @@
         Test your responsive design by resizing this browser window or using browser dev tools.
       </p>
       <p>
-        Run <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm test</span> or click the "Run Tests"
-        button on the dashboard to check your progress.
+        Run <code class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm test</code> (or
+        <code class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm run test:verbose</code> for additional info)
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
         <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-center">
           <div class="text-sm font-mono">Mobile</div>
           <div class="text-xs text-green-300">< 768px</div>
