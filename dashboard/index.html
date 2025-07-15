@@ -121,7 +121,7 @@
           <button
             onclick="startChallenge()"
             class="w-full bg-green-600 text-black py-2 px-4 rounded font-bold hover:bg-green-500 transition-colors">
-            &gt; START CHALLENGE 1
+            &gt; START CHALLENGE
           </button>
           <button
             onclick="viewLessons()"
@@ -272,7 +272,7 @@
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Navigation</h3>
                 <nav class="space-y-2">
                   <a
-                    href="#"
+                    onclick="startChallenge()"
                     class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900">
                     <svg class="mr-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -284,7 +284,7 @@
                     Lessons
                   </a>
                   <a
-                    href="#"
+                    onclick="viewLessons()"
                     class="flex items-center px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-md">
                     <svg class="mr-3 h-5 w-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -296,7 +296,7 @@
                     Challenges
                   </a>
                   <a
-                    href="#"
+                    onclick="runTests()"
                     class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-50 hover:text-gray-900">
                     <svg class="mr-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path

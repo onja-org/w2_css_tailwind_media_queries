@@ -162,7 +162,20 @@
       </p>
 
       <!-- SOLUTION: Responsive dashboard -->
-      <div class="bg-white rounded-lg shadow-sm p-6">
+      <div class="bg-white rounded-lg shadow-sm p-6 flex">
+        <!-- Sidebar (desktop only) -->
+        <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
+        <div class="hidden lg:block bg-gray-50 p-4 rounded-lg lg:mr-8" id="c3-sidebar">
+          <h3 class="font-semibold text-gray-900 mb-2">Navigation</h3>
+          <nav class="space-y-1 text-sm">
+            <a href="#" class="block text-blue-600 font-medium py-1">Dashboard</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Analytics</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Reports</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Users</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Settings</a>
+          </nav>
+        </div>
+
         <!-- SOLUTION: Responsive grid layout -->
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           <!-- Main Content (always visible) -->
@@ -211,19 +224,6 @@
               <div class="bg-white p-2 rounded text-sm">System Settings</div>
               <div class="bg-white p-2 rounded text-sm">API Management</div>
             </div>
-          </div>
-
-          <!-- Sidebar (desktop only) -->
-          <!-- SOLUTION: Hidden on mobile/tablet, visible on desktop -->
-          <div class="hidden lg:block bg-gray-50 p-4 rounded-lg" id="c3-sidebar">
-            <h3 class="font-semibold text-gray-900 mb-2">Navigation</h3>
-            <nav class="space-y-1 text-sm">
-              <a href="#" class="block text-blue-600 font-medium py-1">Dashboard</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Analytics</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Reports</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Users</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900 py-1">Settings</a>
-            </nav>
           </div>
 
           <!-- Additional Content (desktop only) -->

@@ -11,15 +11,16 @@
 ## Getting Started
 
 1. Run `npm run serve` to start the lab server and open the dashboard
-   - This will open the lab interface in your browser
+   - This will open the dashboard interface in your browser
    - If it doesn't open automatically, navigate to `http://localhost:8080/dashboard/index.html`
 2. Resize your browser window to see the dashboard transform
-  - **Mobile (< 640px)**: Terminal-style interface with "TERMINAL-X" persona
-  - **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona
-  - **Desktop (1024px+)**: Professional developer environment with "DevPro Suite" persona
-3. Read the lessons, starting with intro.md, to understand responsive design principles
-4. Follow the challenges in order, working in `lab/starter-template.html`
-5. Run tests with `npm test` or `npm test:verbose` to check your progress (or use the "Run Tests" button on the lab dashboard)
+    - **Mobile (< 640px)**: Terminal-style interface with "TERMINAL-X" persona
+    - **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona
+    - **Desktop (1024px+)**: Professional developer environment with "DevPro Suite" persona
+    >Note that the dashboard is only meant to be an example of what responsive design can achieve -- its functionality is limited to directing you to the lessons and to the lab!
+3. Read the lessons, starting with [intro.md](https://github.com/rwonja/w2_css_tailwind_media_queries/blob/main/lessons/intro.md), to understand responsive design principles in Tailwind
+4. Follow the challenges in order, working in `lab/starter-template.html` -- the source code contains comments and TODOs to guide you
+5. Run tests with `npm test` or `npm run test:verbose` to check your progress (or use the "Run Tests" button on the lab dashboard)
 
 ## Challenges
 
@@ -76,8 +77,9 @@ Build a dashboard where components appear/disappear/reorder based on screen size
 ## Getting Help
 
 - Check the lessons folder for detailed explanations
+- Check the hints underneath each challenge in `starter-template.html`
 - Use the [Tailwind documentation](https://tailwindcss.com/docs/responsive-design) for reference
-- Run tests (`npm test`) frequently to catch issues early -- more detailed output can be seen with `npm test:verbose`
+- Run tests (`npm test`) frequently to catch issues early -- more detailed output can be seen with `npm run test:verbose`
 - If you get stuck, refer to the solution template for guidance
 
 ---

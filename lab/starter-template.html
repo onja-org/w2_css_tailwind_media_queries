@@ -129,6 +129,9 @@
         <br />
         <strong>Goal:</strong> Mobile (hamburger menu) → Tablet (horizontal menu) → Desktop (full navigation with
         extras)
+        <br />
+        <strong>Note:</strong> The hamburger menu doesn't have to do anything when you click on it, just make it
+        visible.
       </p>
 
       <!-- TODO: Add responsive classes for navigation -->
@@ -199,15 +202,27 @@
         <strong>Goal:</strong> Mobile (single column, essential only) → Tablet (two columns) → Desktop (full dashboard)
       </p>
 
-      <!-- TODO: Add responsive grid layout -->
-      <div class="bg-white rounded-lg shadow-sm p-6">
-        <!-- TODO: Make this a responsive grid -->
+      <!-- TODO: Add responsive flex layout -->
+      <div class="bg-white rounded-lg shadow-sm p-6 space-x-4 space-y-4">
+        <!-- Sidebar (desktop only) -->
+        <!-- TODO: Hide on mobile/tablet, show on desktop -->
+        <div class="bg-gray-50 p-4 rounded-lg" id="c3-sidebar">
+          <h3 class="font-semibold text-gray-900 mb-2">Sidebar</h3>
+          <p class="text-gray-700">Desktop sidebar with additional navigation.</p>
+          <nav class="mt-2 space-y-1 text-sm">
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Dashboard</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Reports</a>
+            <a href="#" class="block text-gray-600 hover:text-gray-900">Settings</a>
+          </nav>
+        </div>
+
+        <!-- TODO: Make this a responsive grid with a gap spacing-->
         <!-- Mobile: 1 column -->
         <!-- Tablet: 2 columns -->
         <!-- Desktop: 3 columns -->
         <div class="space-y-4">
           <!-- Main Content (always visible) -->
-          <div class="bg-blue-50 p-4 rounded-lg" id="c3-main-content">
+          <div class="bg-blue-50 p-4 rounded-lg lg:col-span-2" id="c3-main-content">
             <h3 class="font-semibold text-blue-900 mb-2">Main Dashboard</h3>
             <p class="text-blue-700">This main content should always be visible on all screen sizes.</p>
 
@@ -250,16 +265,23 @@
             </div>
           </div>
 
-          <!-- Sidebar (desktop only) -->
-          <!-- TODO: Hide on mobile/tablet, show on desktop -->
-          <div class="bg-gray-50 p-4 rounded-lg" id="c3-sidebar">
-            <h3 class="font-semibold text-gray-900 mb-2">Sidebar</h3>
-            <p class="text-gray-700">Desktop sidebar with additional navigation.</p>
-            <nav class="mt-2 space-y-1 text-sm">
-              <a href="#" class="block text-gray-600 hover:text-gray-900">Dashboard</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900">Reports</a>
-              <a href="#" class="block text-gray-600 hover:text-gray-900">Settings</a>
-            </nav>
+          <!-- Additional Content (desktop only) (already hidden on mobile and tablet) -->
+          <div class="hidden lg:block bg-yellow-50 p-4 rounded-lg">
+            <h3 class="font-semibold text-yellow-900 mb-2">Notifications</h3>
+            <div class="space-y-2 text-sm">
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                System updated successfully
+              </div>
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                New user registered
+              </div>
+              <div class="bg-white p-2 rounded flex items-center">
+                <div class="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                Maintenance scheduled
+              </div>
+            </div>
           </div>
         </div>
       </div>
