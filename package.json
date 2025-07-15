@@ -7,9 +7,7 @@
     "test": "node tests/test-filter.js",
     "test:watch": "mocha tests/lab.test.js --watch --timeout 5000",
     "test:verbose": "mocha tests/lab.test.js --reporter spec --timeout 5000",
-    "start": "node -e \"console.log('Open dashboard/index.html in your browser to start the lab!')\"",
-    "serve": "npx http-server . -p 8080 -o dashboard/index.html",
-    "validate": "node tests/validate-challenges.js"
+    "serve": "npx http-server . -p 8080 -o dashboard/index.html"
   },
   "keywords": [
     "tailwind",

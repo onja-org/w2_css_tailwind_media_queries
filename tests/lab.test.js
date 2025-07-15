@@ -15,7 +15,7 @@ describe("Tailwind Media Queries Lab", function () {
 
   beforeEach(function () {
     // Load the starter template HTML
-    const htmlPath = path.join(__dirname, "starter-template.html");
+    const htmlPath = path.join(__dirname, "../lab/starter-template.html");
     const html = fs.readFileSync(htmlPath, "utf8");
 
     dom = new JSDOM(html, {

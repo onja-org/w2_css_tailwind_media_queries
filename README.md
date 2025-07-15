@@ -1,10 +1,12 @@
-# Lab Design Specification: Tailwind Media Queries
+# Tailwind Media Queries
+
+![Lab header image](assets/w2_css_tailwind_media_queries.png)
 
 ## Core Concept
-**Topic**: Tailwind Media Queries
-**Learning Objective**: Students will be able to create responsive layouts using Tailwind's breakpoint utilities (sm:, md:, lg:, xl:, 2xl:) and understand mobile-first design principles
-**Estimated Duration**: 3 hours
-**Prerequisite Knowledge**: HTML structure, CSS basics, Tailwind utility classes, basic understanding of responsive design concepts
+- **Topic**: Tailwind Media Queries
+- **Learning Objective**: Students will be able to create responsive layouts using Tailwind's breakpoint utilities (sm:, md:, lg:, xl:, 2xl:) and understand mobile-first design principles
+- **Estimated Duration**: 3 hours
+- **Prerequisite Knowledge**: HTML structure, CSS basics, Tailwind utility classes, basic understanding of responsive design concepts
 
 ## Getting Started
 
@@ -12,17 +14,12 @@
    - This will open the lab interface in your browser
    - If it doesn't open automatically, navigate to `http://localhost:8080/dashboard/index.html`
 2. Resize your browser window to see the dashboard transform
+  - **Mobile (< 640px)**: Terminal-style interface with "TERMINAL-X" persona
+  - **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona
+  - **Desktop (1024px+)**: Professional developer environment with "DevPro Suite" persona
 3. Read the lessons, starting with intro.md, to understand responsive design principles
 4. Follow the challenges in order, working in `lab/starter-template.html`
-5. Run tests with `npm test` to check your progress (or use the "Run Tests" button in the lab interface or on the dashboard)
-
-## Lab Overview
-
-This lab uses a **Self-Revealing Interface with Morphing Environment** approach. The lab dashboard itself transforms completely at different breakpoints, teaching you responsive design by example:
-
-- **Mobile (< 640px)**: Terminal-style interface with "TERMINAL-X" persona
-- **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona
-- **Desktop (1024px+)**: Professional developer environment with "DevPro Suite" persona
+5. Run tests with `npm test` or `npm test:verbose` to check your progress (or use the "Run Tests" button on the lab dashboard)
 
 ## Challenges
 
@@ -48,10 +45,6 @@ Build a dashboard where components appear/disappear/reorder based on screen size
 ## File Structure
 
 ```
-/dashboard
-  - index.html            # Dashboard interface (Your starting point!)
-  - ...                   # Other dashboard for functionality
-
 /lessons
   - intro.md              # Introduction to responsive design
   - mobile-first.md       # Mobile-first methodology
@@ -61,6 +54,9 @@ Build a dashboard where components appear/disappear/reorder based on screen size
   - starter-template.html # Your working file
   - solution-template.html # Example solution for reference
 
+/dashboard                # Dashboard interface (No need to modify these files)
+/tests                    # Automated tests (You don't need to worry about these files)
+/assets                   # Image for the readme (You don't need to access)
 ```
 
 ## Assessment
@@ -79,11 +75,11 @@ Build a dashboard where components appear/disappear/reorder based on screen size
 
 ## Getting Help
 
-- The lab interface provides contextual hints based on your current viewport
 - Check the lessons folder for detailed explanations
-- Run tests frequently to catch issues early
-- Remember: Mobile-first means mobile styles are the default!
+- Use the [Tailwind documentation](https://tailwindcss.com/docs/responsive-design) for reference
+- Run tests (`npm test`) frequently to catch issues early -- more detailed output can be seen with `npm test:verbose`
+- If you get stuck, refer to the solution template for guidance
 
 ---
 
-**Ready to begin?** Open `lab/index.html` and start your responsive design journey!
+**Ready to begin?** Run `npm run serve` and start your responsive design journey!

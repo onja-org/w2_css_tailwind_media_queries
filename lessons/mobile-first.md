@@ -1,6 +1,6 @@
 > Note: You may want to open this file in the github repository in your browser to see the markdown content rendered propertly.
 
-> Another option is to use a markdown viewer extension in your browser. (For example, [Markdown Viewer](https://github.com/simov/markdown-viewer).) Note that you will have to enable the extension for local files and for `http://127.0.0.1`
+> Another option is to use a markdown viewer extension in your browser. (For example, [Markdown Viewer](https://github.com/simov/markdown-viewer).) Note that you will have to enable the extension for local files and for `http://127.0.0.1` in the `Site Access` settings of the extension.
 
 # Mobile-First Methodology
 

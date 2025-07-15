@@ -8,7 +8,7 @@ const { spawn } = require("child_process");
 const process = require("process");
 
 // Spawn mocha with color output
-const mocha = spawn("npx", ["mocha", "lab/**/*.test.js", "--color"], {
+const mocha = spawn("npx", ["mocha", "tests/**/*.test.js", "--color"], {
   stdio: ["inherit", "pipe", "pipe"],
 });
 
@@ -16,7 +16,7 @@ let buffer = "";
 let foundSummary = false;
 
 // Process stdout line by line
-mocha.stdout.on("data", (data) => {
+mocha.stdout.on("data", data => {
   buffer += data.toString();
 
   // Split into lines but keep the last incomplete line in buffer
@@ -54,12 +54,12 @@ mocha.stdout.on("data", (data) => {
 });
 
 // Handle stderr
-mocha.stderr.on("data", (data) => {
+mocha.stderr.on("data", data => {
   process.stderr.write(data);
 });
 
 // Handle mocha exit
-mocha.on("close", (code) => {
+mocha.on("close", code => {
   // Print any remaining buffer
   if (buffer.trim()) {
     process.stdout.write(buffer);

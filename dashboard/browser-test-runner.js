@@ -646,7 +646,6 @@ class BrowserTestRunner {
           <div class="text-sm">Could not load starter-template.html</div>
           <div class="text-sm font-bold text-yellow mt-1">TIP: make sure that you have run "npm run serve" and then accessed this page at "localhost:8080/dashboard/index.html". If you open it without serving it (for example, just by double clicking on the file), the browser will not allow you to run the tests because of CORS (you'll learn about CORS eventually)!</div>
           <div class="text-xs text-red-600 mt-1">${error.message}</div>
-          <div class="text-xs text-gray-500 mt-1">💡 Try: Save your file and run tests again</div>
         </div>
         <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-red-500 hover:text-red-700 text-xl">&times;</button>
       </div>
