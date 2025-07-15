@@ -1,24 +1,27 @@
 # Lab Design Specification: Tailwind Media Queries
 
 ## Core Concept
-**Topic**: Tailwind Media Queries  
-**Learning Objective**: Students will be able to create responsive layouts using Tailwind's breakpoint utilities (sm:, md:, lg:, xl:, 2xl:) and understand mobile-first design principles  
-**Estimated Duration**: 3 hours  
+**Topic**: Tailwind Media Queries
+**Learning Objective**: Students will be able to create responsive layouts using Tailwind's breakpoint utilities (sm:, md:, lg:, xl:, 2xl:) and understand mobile-first design principles
+**Estimated Duration**: 3 hours
 **Prerequisite Knowledge**: HTML structure, CSS basics, Tailwind utility classes, basic understanding of responsive design concepts
 
 ## Getting Started
 
-1. Open `lab/index.html` in your browser
-2. Resize your browser window to see the lab interface transform
-3. Follow the challenges in order, working in `lab/starter-template.html`
-4. Run tests with `npm test` to check your progress
+1. Run `npm run serve` to start the lab server and open the dashboard
+   - This will open the lab interface in your browser
+   - If it doesn't open automatically, navigate to `http://localhost:8080/dashboard/index.html`
+2. Resize your browser window to see the dashboard transform
+3. Read the lessons, starting with intro.md, to understand responsive design principles
+4. Follow the challenges in order, working in `lab/starter-template.html`
+5. Run tests with `npm test` to check your progress (or use the "Run Tests" button in the lab interface or on the dashboard)
 
 ## Lab Overview
 
-This lab uses a **Self-Revealing Interface with Morphing Environment** approach. The lab interface itself transforms completely at different breakpoints, teaching you responsive design by example:
+This lab uses a **Self-Revealing Interface with Morphing Environment** approach. The lab dashboard itself transforms completely at different breakpoints, teaching you responsive design by example:
 
 - **Mobile (< 640px)**: Terminal-style interface with "TERMINAL-X" persona
-- **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona  
+- **Tablet (640px - 1024px)**: Playful interface with "TabbyGuide" persona
 - **Desktop (1024px+)**: Professional developer environment with "DevPro Suite" persona
 
 ## Challenges
@@ -45,22 +48,19 @@ Build a dashboard where components appear/disappear/reorder based on screen size
 ## File Structure
 
 ```
+/dashboard
+  - index.html            # Dashboard interface (Your starting point!)
+  - ...                   # Other dashboard for functionality
+
 /lessons
   - intro.md              # Introduction to responsive design
   - mobile-first.md       # Mobile-first methodology
   - breakpoint-reference.md # Tailwind breakpoint reference
 
 /lab
-  - index.html           # Main lab interface (shape-shifting)
-  - lab-styles.css       # Lab's responsive personalities
   - starter-template.html # Your working file
-  - lab.test.js          # Responsive behavior tests
-  - lab-controller.js    # Lab state management
+  - solution-template.html # Example solution for reference
 
-/assets
-  - terminal-font.woff2  # Terminal persona font
-  - playful-icons.svg    # Tablet persona icons
-  - professional-ui.css  # Desktop persona styles
 ```
 
 ## Assessment

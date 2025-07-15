@@ -1,3 +1,7 @@
+> Note: You may want to open this file in the github repository in your browser to see the markdown content rendered propertly.
+
+> Another option is to use a markdown viewer extension in your browser. (For example, [Markdown Viewer](https://github.com/simov/markdown-viewer).) Note that you will have to enable the extension for local files and for `http://127.0.0.1` in the `Site Access` settings of the extension.
+
 # Introduction to Responsive Design
 
 ## What is Responsive Design?
@@ -39,7 +43,8 @@ Instead of fixed pixel widths, use relative units:
 ## How This Lab Teaches Responsive Design
 
 ### The Shape-Shifting Environment
-This lab itself demonstrates responsive design! As you resize your browser, notice how the entire interface transforms:
+The dashboard of the lab itself demonstrates responsive design! Test it out, go back to the dashboard. As you resize your browser, notice how the entire
+interface transforms:
 
 - **Mobile (< 640px)**: Minimal terminal interface focused on essential tasks
 - **Tablet (640px - 1024px)**: Friendly, touch-optimized interface with larger buttons

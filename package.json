@@ -4,12 +4,12 @@
   "description": "Interactive lab for learning Tailwind CSS media queries and responsive design",
   "main": "lab/index.html",
   "scripts": {
-    "test": "node scripts/test-filter.js",
-    "test:watch": "mocha lab/lab.test.js --watch --timeout 5000",
-    "test:verbose": "mocha lab/lab.test.js --reporter spec --timeout 5000",
-    "start": "node -e \"console.log('Open lab/index.html in your browser to start the lab!')\"",
-    "serve": "npx http-server . -p 8080 -o lab/index.html",
-    "validate": "node scripts/validate-challenges.js"
+    "test": "node tests/test-filter.js",
+    "test:watch": "mocha tests/lab.test.js --watch --timeout 5000",
+    "test:verbose": "mocha tests/lab.test.js --reporter spec --timeout 5000",
+    "start": "node -e \"console.log('Open dashboard/index.html in your browser to start the lab!')\"",
+    "serve": "npx http-server . -p 8080 -o dashboard/index.html",
+    "validate": "node tests/validate-challenges.js"
   },
   "keywords": [
     "tailwind",

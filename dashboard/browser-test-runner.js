@@ -482,7 +482,7 @@ class BrowserTestRunner {
    * Run all tests on the external file
    * @param {string} filePath - Path to the HTML file to test
    */
-  async runAllTests(filePath = "starter-template.html") {
+  async runAllTests(filePath = "./lab/starter-template.html") {
     try {
       console.log(`🧪 Loading ${filePath} for testing (bypassing cache)...`);
 
@@ -644,7 +644,7 @@ class BrowserTestRunner {
         <div>
           <div class="font-bold">Testing Error</div>
           <div class="text-sm">Could not load starter-template.html</div>
-          <div class="text-sm font-bold text-yellow mt-1">TIP: make sure that you have run "npm run serve" and then accessed this page at "localhost:3000". If you open it without serving it (for example, just by double clicking on the file), the browser will not allow you to run the tests because of CORS (you'll learn about CORS eventually)!</div>
+          <div class="text-sm font-bold text-yellow mt-1">TIP: make sure that you have run "npm run serve" and then accessed this page at "localhost:8080/dashboard/index.html". If you open it without serving it (for example, just by double clicking on the file), the browser will not allow you to run the tests because of CORS (you'll learn about CORS eventually)!</div>
           <div class="text-xs text-red-600 mt-1">${error.message}</div>
           <div class="text-xs text-gray-500 mt-1">💡 Try: Save your file and run tests again</div>
         </div>
@@ -664,7 +664,7 @@ class BrowserTestRunner {
 // Global function to run tests (maintains compatibility with existing buttons)
 async function runTests() {
   const runner = new BrowserTestRunner();
-  await runner.runAllTests("starter-template.html");
+  await runner.runAllTests("../lab/starter-template.html");
 }
 
 // Global function for backward compatibility

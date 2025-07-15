@@ -399,7 +399,7 @@ function startChallenge() {
     challenge1.scrollIntoView({ behavior: "smooth" });
   } else {
     // If on main lab page, navigate to starter template
-    window.open("starter-template.html", "_blank").focus();
+    window.open("../lab/starter-template.html", "_blank").focus();
   }
 }
 

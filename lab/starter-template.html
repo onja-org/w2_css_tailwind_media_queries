@@ -12,7 +12,7 @@
         border-radius: 0.5rem;
         padding: 1rem;
         margin: 1rem 0;
-        background: #f8fafc;
+        background: #ece3f9;
       }
 
       .challenge-complete {
@@ -41,7 +41,7 @@
     <!-- Lab Header -->
     <header class="bg-white rounded-lg shadow-sm p-6 mb-6">
       <h1 class="text-2xl font-bold text-gray-900 mb-2">Tailwind Media Queries Lab - Student Workspace</h1>
-      <p class="text-gray-600">
+      <p class="text-gray-600 mb-2">
         Complete each challenge by adding responsive Tailwind classes in
         <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">lab/starter-template.html</span>.
         <br />
@@ -49,16 +49,12 @@
         See whether your breakpoints are working by resizing the browser window or by using the browser's developer
         tools to simulate different screen sizes. (F12 to open dev tools, then click the device toolbar icon or press
         Ctrl+Shift+M to toggle device mode.)
-        <br />
-        <br />
-        You can run tests to see your progress by either:
-        <br />
       </p>
+      <p class="text-gray-600 mb-2">You can run tests to see your progress by either:</p>
       <ul class="list-disc pl-6 text-gray-600 mt-2">
         <li class="mb-2">
-          Running <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm run serve</span> in the project
-          directory, visiting <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">localhost:3000</span>, and
-          clicking the "Run Tests" button on the lab homepage, or by
+          Clicking the Run Tests button on the
+          <a class="text-blue-600 font-medium" target="_blank" href="../dashboard/index.html">dashboard</a>
         </li>
         <li>Running <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm test</span> in your console</li>
       </ul>
@@ -317,6 +313,10 @@
       <p class="text-gray-600 mb-4">
         Test your responsive design by resizing this browser window or using browser dev tools.
       </p>
+      <p>
+        Run <span class="bg-gray-200 font-mono rounded px-2 py-1 text-sm">npm test</span> or click the "Run Tests"
+        button on the dashboard to check your progress.
+      </p>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="bg-gray-900 text-green-400 p-4 rounded-lg text-center">
@@ -331,12 +331,6 @@
           <div class="text-sm font-semibold">Desktop</div>
           <div class="text-xs text-blue-200">1024px+</div>
         </div>
-      </div>
-
-      <div class="mt-4 text-center">
-        <button onclick="runTests()" class="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700">
-          Run Tests
-        </button>
       </div>
     </section>
 
@@ -361,11 +355,6 @@
       // Update indicator on load and resize
       window.addEventListener("load", updateBreakpointIndicator);
       window.addEventListener("resize", updateBreakpointIndicator);
-
-      // Simple test function
-      function runTests() {
-        alert("Tests would run here! In the full lab, this would check your responsive classes.");
-      }
     </script>
   </body>
 </html>
