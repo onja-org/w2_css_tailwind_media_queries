@@ -27,14 +27,20 @@
 ### Challenge 1 - The Responsive Card
 Build a card component that transforms from a compact mobile list item to an expanded desktop feature.
 
+<img src="assets/tailwind_media_queries_1.png" alt="Challenge 1 image" width="400">
+
 ### Challenge 2 - The Adaptive Navigation
 Create navigation that shape-shifts like the lab itself:
 - Mobile: Hamburger menu with slide-out drawer
 - Tablet: Bottom tab bar with icons
 - Desktop: Traditional top navigation with dropdowns
 
+<img src="assets/tailwind_media_queries_2.png" alt="Challenge 2 image" width="400">
+
 ### Challenge 3 - The Content Choreographer
 Build a dashboard where components appear/disappear/reorder based on screen size.
+
+<img src="assets/tailwind_media_queries_3.png" alt="Challenge 3 image" width="400">
 
 ## Key Learning Points
 
